@@ -1,0 +1,1 @@
+prefix mex is equal to the suffix min

@@ -1,0 +1,18 @@
+[ ] TODO: detalhar
+
+// 1. Com uma dfs, coletar dados auxiliares:
+//      1.1   Preencher S(u) := tamanho da subárvore de u,
+//      1.2.1 Guardar qual o filho mais pesado, ou 
+//      1.2.2 Estabelecer que ele será o primeiro da lista de adjacência
+//      1.3   Guardar profundidade depth(u) (opcional)
+//      1.4   Guarda o pai (se não for fornecido)
+
+// 2. Com outra dfs, construir a hld
+//      2.1 Guardar a posição correspondente do nó da árvore na seg('tempo da dfs')
+//      2.2 Guardar o 'representante/cabeça' da cadeia
+
+// 3. Fazer operações de update e consulta usando lca, para isso
+//     3.1.1 'Computar' lca usando depth(u), ou
+//     3.1.2  Usando propriedade do euler tour de uma árvore(?), de que 
+//            uma subárvore de u sempre está a direita de u no vetor 'pos'
+

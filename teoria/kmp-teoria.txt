@@ -1,0 +1,11 @@
+KMP - Resolve o problema de string matching
+
+[ ] Melhorar!
+ 
+1a definição
+Dada um a string s, e n = |s|
+b[i] := responde qual é maior prefixo que também é sufixo, do sufixo s[0..i] 
+
+2a definição (tabela de falhas)
+b[i] := -1, Se i = 0, 
+	caso contrário: Responde qual o do caractere que ainda tem chance de expandir o padrão.

@@ -1,0 +1,28 @@
+---- Binary lifting  - Responde quem é o k-ésimo ancestral de u em uma árvore
+
+int up[MAXN][LOG]; // up[v][j] is 2^j-th ancestor of v
+
+Computar usando uma dfs  
+
+
+--- LCA 
+
+Supondo que A, B estão na mesma profundidade.
+
+Basicamente busca binária, usando a seguinte visualização:
+
+1 ancestral
+1 ancestral
+1 ancestral
+1 ancestral      <--- LCA
+0 descendente                  <---- é mais fácil encontrar esse cara
+0 ...
+0
+0
+0
+0
+0
+0
+0 onde está os vértices A e B
+
+Para isso iteramos de potências de 2 maiores para menores

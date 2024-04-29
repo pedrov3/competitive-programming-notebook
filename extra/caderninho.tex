@@ -1,0 +1,251 @@
+\documentclass[a4paper]{article}
+\usepackage{xcolor}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0,0.5,0}
+% Configurando layout para mostrar codigos C++
+\usepackage{listings}
+\lstset{
+  language=C++,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{black},
+  stringstyle=\color{black},
+  commentstyle=\color{black},
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  backgroundcolor=\color{white},
+  breakautoindent=true,
+  captionpos=b,
+  xleftmargin=0pt,
+}
+\pagestyle{empty}
+\renewcommand{\contentsname}{Sumario}
+
+
+\begin{document}
+\tableofcontents
+
+
+
+\section{Template Longo}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/detail/standard_policies.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+#define int long long
+#define all(x) x.begin(), x.end()
+
+using namespace __gnu_pbds;
+using namespace std;
+
+template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+% template <class T> using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+typedef long long ll;
+typedef pair<int, int> ii;
+typedef tuple<int, int, int> iii;
+typedef vector<int> vi;
+const ll oo = 1987654321987654321;
+
+template <class It>
+void db(It b, It e) {
+  for (auto it = b; it != e; it++) cout << *it << ' ';
+  cout << endl;
+}
+
+int32_t main() {
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
+}
+
+\end{lstlisting}
+
+
+
+\section{PBS}
+\begin{lstlisting}
+s.insert(1);
+s.insert(2);
+s.insert(4);
+s.insert(8);
+s.insert(16);
+
+cout<<*s.find_by_order(1)<<endl; // 2
+cout<<*s.find_by_order(2)<<endl; // 4
+cout<<*s.find_by_order(4)<<endl; // 16
+cout<<(end(s)==s.find_by_order(6))<<endl; // true
+
+cout<<s.order_of_key(-5)<<endl;  // 0
+cout<<s.order_of_key(1)<<endl;   // 0
+cout<<s.order_of_key(3)<<endl;   // 2
+cout<<s.order_of_key(4)<<endl;   // 2
+cout<<s.order_of_key(400)<<endl; // 5
+\end{lstlisting}
+
+
+ 
+\section{SQRT Decomposition on Trees}
+
+\begin{lstlisting}
+
+int B = ceil(sqrt(h_mx)) + gen(1, 100);
+for (int i=0; i < h_mx; i+=B){
+    int mi = -1;
+    for (int j=0; j < B; j++){
+        int id = i + j;
+        if (!by_height[id].empty()){
+            if (mi == -1 || (by_height[mi].size() > by_height[id].size())){
+                mi = id;
+            }
+        }
+    }
+    if (mi != -1){
+        for (auto &u: by_height[mi]){
+            for (auto &v: by_height[mi]){
+                if (u <= v){
+                    tab[ii(u, v)] = solve(u, v);
+                }
+            }
+        }
+        for (auto &u: by_height[mi]){
+            special[u] = true;
+        }
+    }
+}
+ \end{lstlisting}
+
+\section{Digit DP - Generalizada}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+#define BIT(x, i) ((x & (1ll << i)) ? 1 : 0)
+#define int long long
+
+using namespace std;
+
+typedef long long ll;
+const ll P = 1e9 + 7;
+
+ll memo[50][2][2][2][2];
+
+ll dp(int i, int upper0, bool e0, int upper1, bool e1, int upper2, bool e2,
+      int x = 0) {
+  if (i == -1) return x != 0;
+  ll &ans = memo[i][e0][e1][e2][x];
+  if (ans != -1) return ans;
+  ans = 0;
+  int r0 = e0 ? BIT(upper0, i) : 1;
+  int r1 = e1 ? BIT(upper1, i) : 1;
+  int r2 = e2 ? BIT(upper2, i) : 1;
+  for (int v0 = 0; v0 <= r0; v0++) {
+    bool new_e0 = e0 && v0 == r0;
+    for (int v1 = 0; v1 <= r1; v1++) {
+      bool new_e1 = e1 && v1 == r1;
+      for (int v2 = 0; v2 <= r2; v2++) {
+        bool new_e2 = e2 && v2 == r2;
+        ans += dp(i - 1, upper0, new_e0, upper1, new_e1, upper2, new_e2,
+                  ((x) || (v0 ^ v1 ^ v2)));
+        ans %= P;
+      }
+    }
+  }
+  return ans;
+}
+
+ll solve(int x, int y, int z) {
+  memset(memo, -1, sizeof(memo));
+  return dp(40, x, true, y, true, z, true);
+}
+
+ll expbin(ll a, ll b) {
+  if (b == 0LL) return 1LL;
+  if (b & (1LL)) return (a % P * expbin(a, b - 1)) % P;
+  ll tmp = expbin(a, b / 2);
+  return (tmp * tmp) % P;
+}
+
+int32_t main() {
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
+
+  int l[3], r[3];
+  ll q = 1;
+  for (int i = 0; i < 3; i++) {
+    cin >> l[i] >> r[i];
+    q *= (r[i] - l[i] + 1) % P;
+    q %= P;
+  }
+  cout << ((((((((((  solve(r[0], r[1], r[2])
+                    - solve(l[0] - 1, r[1], r[2])) %P
+                    - solve(r[0], l[1] - 1, r[2])) % P
+                    - solve(r[0], r[1], l[2] - 1)) % P
+                    + solve(l[0] - 1, l[1] - 1, r[2])) % P
+                    + solve(l[0] - 1, r[1], l[2] - 1)) % P
+                    + solve(r[0], l[1] - 1, l[2] - 1)) % P
+                    - solve(l[0] - 1, l[1] - 1, l[2] - 1)) % P + P) % P)  * expbin(q, P - 2)) % P << "\n";
+}
+ \end{lstlisting}
+
+\section{BIT 2D}
+\begin{lstlisting}
+ll bit[MAX][MAX];
+
+void add(int i, int j, ll v) {
+  for (; i < MAX; i += i & (-i))
+    for (int jj = j; jj < MAX; jj += jj & (-jj)) bit[i][jj] += v;
+}
+
+ll getbit(int i, int j) {
+  ll sum = 0;
+  for (; i; i -= i & (-i))
+    for (int jj = j; jj; jj -= jj & (-jj)) sum += bit[i][jj];
+  return sum;
+}
+
+ll getbit(int lx, int ly, int rx, int ry) {  // getbit(1, 1, lin, col)
+  return getbit(rx, ry) - getbit(rx, ly - 1) - getbit(lx - 1, ry) +
+         getbit(lx - 1, ly - 1);
+}
+
+void add(int lx, int ly, int rx, int ry, ll v) {  // canto superior esquerdo
+  rx++;                                           // canto inferior direito
+  ry++;
+  add(lx, ly, +v);
+  add(lx, ry, -v);
+  add(rx, ly, -v);
+  add(rx, ry, +v);
+}
+\end{lstlisting}
+\section{BIT 2D - Esparsa}
+\begin{lstlisting}
+ordered_set<ii> bit[MAX];
+
+void insert(int x, int y) {
+  for (int i = x; i < MAX; i += i & -i)
+      bit[i].insert(ii(y, x));
+}
+
+void remove(int x, int y) {
+  for (int i = x; i < MAX; i += i & -i)
+      bit[i].erase(ii(y, x));
+}
+
+int get(int x, int y) {
+  int ans = 0;
+  for (int i = x; i > 0; i -= i & -i)
+      ans += bit[i].order_of_key(ii(y + 1, 0));
+  return ans;
+}
+
+int get(int lx, int ly, int rx, int ry) {
+  return get(rx, ry) - get(rx, ly - 1) - get(lx - 1, ry) + get(lx - 1, ly - 1);
+}
+ \end{lstlisting}
+
+\end{document}

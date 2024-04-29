@@ -1,0 +1,15 @@
+// Resolve o problema do Caixeiro Viajante
+
+Complexidade O(n^2 * 2^n)
+
+
+S[i, X] := qual o menor custo saindo de i e percorrendo todas as cidades em X
+
+Dado pela recorrência:
+	S[i, X] = min{S[j, X - {j}] + c[i][j], para todo j alcançavel a partir de i} + t[i].
+
+0 <= i < n
+X é subconjunto de V
+
+A resposta é: ...[ ] Melhorar
+	se não é possível construir nenhum caminho a partir de um i, e um X de tamanho k, então a resposta k.

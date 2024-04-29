@@ -1,0 +1,26 @@
+Definição 
+	Para cada vértice há exatamente uma aresta.
+	É formado por vários ciclos com árvores penduradas.
+	Também pode ser obtido a partir de uma árvore com mais uma aresta.
+
+Caso não direcionado mais difícil.
+
+Informações relativas aos vértices:
+	pai[v] - vértice vizinho de v que está mais próximo de um ciclo de v.
+	paiCiclo[v] - vértice mais próximo de v, que está num ciclo(primeiro vértice que v alcança que está num ciclo)
+	ciclo[v] - índice do ciclo que o v alcança
+	noCiclo[v] - Guarda se v está num ciclo ou não (V/F ou 1/0)
+	idNoCiclo[v] - Índice de v no ciclo. Caso v não esteja podemos colocar -1
+	prof[v] - Profundidade na árvore, ou quantas arestas até v chegar no paiCiclo[v]
+	sub[v] - Quantidade de vértices na subárvore de v
+	Informações da Árvore(por ex DP na árvore)
+
+Informações relativas aos ciclos:
+	tam[c] - Tamanho do ciclo de índice c
+	ini[c] - Vértice de índice 0 do ciclo de índice c	
+	ciclos[c][] - Vector contendo todos os vértices do ciclo c na ordem correta
+	qtdCiclos - Quantidade de ciclos
+
+Duas estratégias para coletar essas informações: whiles e lenhadora.
+
+// Baseada na aula do professor André Amaral: https://www.youtube.com/watch?v=jfBiPMOqRY4&ab_channel=InstitutodeComputa%C3%A7%C3%A3o-UNICAMP

@@ -1,0 +1,3 @@
+[ ] TODO: isso está horrível
+ 
+BFS - A cada iteração encontra o: Conjunto maximal de caminhos de aumento de comprimento mínimo. Além disso, gera um vetor de distância que será um "mapa" pra encontrar para depois, isto usando uma DFS, para encontrar um conjunto máximo de emparelhamentos, dois a dois disjuntos.

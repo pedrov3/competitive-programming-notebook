@@ -1,0 +1,7 @@
+Estrutura que suporta operações do tipo:
+	inserir no final
+	remover do inicio
+	obter o mínimo
+	Adicional: somar um valor em todos os elementos atuais da fila
+
+Duas maneiras de implementar: duas stacks de min, uma deque (usando a ideia de manter só os elementos importantes)

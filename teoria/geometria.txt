@@ -1,0 +1,3 @@
+
+
+Um parelelepipedo está dentro de uma esfera se a sua 'maior  diagonal' é menor ou igual que o diametro. (Problema: Sedex Marciano)

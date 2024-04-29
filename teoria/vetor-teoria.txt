@@ -1,0 +1,39 @@
+Pontos objeto geométrico mais simples.
+
+Vetores, operações elementares:
+	Vetor inverso
+	Somar dois vetores(já inclui subtração)
+	Multiplicar por escalar(já inclui divisão por escalar)
+	Tamanho do vetor
+	Ângulo formado pelo vetor	
+
+Criação de vetor:
+	A partir do ponto A até o ponto B
+
+----
+Produto escalar 
+	(1) Definição trigonometrica
+	(2) Definição a partir das coordenadas
+	(3) Definição a partir de seu resultado ser igual a zero
+	    apenas se dois vetores são perpendiculares
+
+	Propriedades:
+		<u, u> = ||u||^2	
+		<u, v + w> = <u,v> + <u,w>
+
+
+
+Aplicações:
+	Projeção de do vetor A no vetor B.
+	Determinação do ângulo Theta entre dois vetores(agudo, retângulo, obtuso e o valor em si)
+
+Produto vetorial
+	(1) Definição trigonometrica(área do paralelogramo)
+	a x b = |a| * |b| * sin(a ^ b);
+    (2) Definição a partir do determinante
+	(3) Definiçõa a partir da ideia da perpendicularidade
+
+Aplicações:
+	Área do paralegramo
+	Área do triângulo	
+	Determinação do ângulo Theta entre dois vetores
