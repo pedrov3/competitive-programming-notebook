@@ -12,8 +12,8 @@ void dfs(int u, int _p) {
   }
 }
 
-void build() {  // TODO:
-  dfs(0, 0);
+void build() {  // TODO
+  dfs(0, 0);    // TODO
   for (int j = 0; j < n; j++) tab[0][j] = p[j];
   for (int i = 1; i < LOGN; i++)
     for (int j = 0; j < n; j++) tab[i][j] = tab[i - 1][tab[i - 1][j]];
@@ -39,6 +39,6 @@ int lca(int u, int v) {
 
 ll solve(int u, int v) {  // Distancia entre dois vertices com custo
   if (u > v) swap(u, v);
-  if (u == 0) return dist[v];
+  if (u == 0) return dist[v]; // TODO
   return dist[u] + dist[v] - 2 * dist[lca(u, v)];
 }
