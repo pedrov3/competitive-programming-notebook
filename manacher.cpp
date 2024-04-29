@@ -1,3 +1,4 @@
+// from: https://github.com/brunomaletta/Biblioteca/blob/dbcc61b3cb386ad00c9036a5b107a81b1817920f/Codigo/Strings/manacher.cpp
 // Manacher
 //
 // manacher recebe um vetor de T e retorna o vetor com tamanho dos palindromos

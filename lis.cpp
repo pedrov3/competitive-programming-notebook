@@ -1,7 +1,9 @@
 vector<ll> bit(MAX, 0LL);
+
 void add(int i, ll delta) {
   for (; i < MAX; i += i & (-i)) bit[i] = max(bit[i], delta);
 }
+
 ll get(int i) {
   if (i <= 0) return 0LL;
   ll ans = 0LL;

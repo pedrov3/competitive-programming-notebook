@@ -1,4 +1,3 @@
-
 int lcs(string &s, string &t) {
   int n = s.size();
   int m = t.size();

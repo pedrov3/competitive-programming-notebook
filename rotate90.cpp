@@ -1,4 +1,3 @@
-// [n - i - 1][n - j - 1]
 void rotate90(vector<vi> &mat) {
   int n = mat.size();
   vector<vi> tmp = mat;

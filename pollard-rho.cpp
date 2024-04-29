@@ -1,3 +1,4 @@
+// from: https://github.com/brunomaletta/Biblioteca/blob/f59fbb7026cabcd3d9556bb2b499a0e07bc75abc/Codigo/Matematica/pollardrho.cpp
 // Pollard's Rho Alg
 //
 // Usa o algoritmo de deteccao de ciclo de Floyd
@@ -10,8 +11,6 @@
 // rho - esperado O(n^(1/4)) no pior caso
 // fact - esperado menos que O(n^(1/4) log(n)) no pior caso
 
-// from:
-// https://github.com/brunomaletta/Biblioteca/blob/f59fbb7026cabcd3d9556bb2b499a0e07bc75abc/Codigo/Matematica/pollardrho.cpp#L4
 
 ll mul(ll a, ll b, ll m) {
   ll ret = a * b - ll((long double)1 / m * a * b + 0.5) * m;

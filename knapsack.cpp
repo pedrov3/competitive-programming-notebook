@@ -1,5 +1,4 @@
-
-int memo[MAX][MAX];
+int memo[MAXN][MAXM];
 vi c, v;
 
 int knap(int i, int j) {

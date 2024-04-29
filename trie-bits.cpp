@@ -87,4 +87,5 @@ signed main() {
       cout << solve(x) << "\n";
     }
   }
-}
+
+

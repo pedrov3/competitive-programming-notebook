@@ -1,3 +1,4 @@
+// TODO: lca, distancia entre dois vertices com custo (?), tempo de entrada da DFS
 int virtual_tree(vi vet) {
   auto cmp = [&](int i, int j) { return in[i] < in[j]; };
   sort(all(vet), cmp);
