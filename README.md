@@ -6,12 +6,12 @@
 - [ ] Melhorar comentários na [bit2d](bit2d.cpp)
 - [ ] Juntar [combinatoria.cpp](combinatoria.cpp), [composicao.cpp](composicao.cpp) e [binomio.cpp](binomio.cpp) ?
 - [ ] Melhorar comentários do codigo de [conectividade dinâmica](conectividade-dinamica.cpp)
-- [ ] Simplficar codigo do [convexhull](convex-hull.cpp)
+- [ ] Simplificar codigo do [convexhull](convex-hull.cpp)
 - [ ] Arrumar código de [euclides estendido](euclides-estendido.cpp)
 - [ ] Encontrar um codigo de fluxo máximo melhor
 - [ ] Código de fft está muito grande
-- [ ] Simplficar código do [Hash generalizado](hash-generalizado.cpp)
-- [ ] Simplficar código da [HLD](hld.cpp)
+- [ ] Simplificar código do [Hash generalizado](hash-generalizado.cpp)
+- [ ] Simplificar código da [HLD](hld.cpp)
 - [ ] Código do [hungáro](hungarian.cpp) está faraônico
 - [ ] Encontrar um codigo de interpolação melhor
 - [ ] Simplificar código do [kosaraju](kosaraju.cpp)
