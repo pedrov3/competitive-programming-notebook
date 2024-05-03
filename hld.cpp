@@ -37,10 +37,10 @@ void build() {}  // TODO: Sparse table / Seg tree ...
 int gethld(int u, int v) {
   int ans = oo;  // TODO:
   if (pos[u] > pos[v]) swap(u, v);
-  while (head[u] != head[v]) {  // TODO: porque tem que ser o v
+  while (head[u] != head[v]) {
     ans = min(ans, getmin(pos[head[v]], pos[v] + 1));  // TODO
     v = par[head[v]];
     if (pos[u] > pos[v]) swap(u, v);
   }
-  return ans = min(ans, getmin(pos[u] + 1 /* TODO?*/, pos[v] + 1));  // TODO
+  return ans = min(ans, getmin(pos[u] + 1 /* TODO: edge = 1*/, pos[v] + 1));  // TODO
 }
