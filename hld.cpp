@@ -1,35 +1,33 @@
-vector<ii> adj[MAX];
-int pos[MAX], sz[MAX], par[MAX], head[MAX], orig[MAX], ids = 0;
+vi adj[MAX];
 
-void fillhld(int u = 0, int p = -1) {
-  int maior = -1, imaior = -1;
-  par[u] = p;
-  sz[u] = 1;
-  for (int j = 0; j < adj[u].size(); j++) {
-    int v = adj[u][j].first;
-    if (v == p) continue;
-    fillhld(v, u);
-    if (maior == -1 || (sz[v] > sz[maior])) {
-      maior = v;
-      imaior = j;
-    }
-    sz[u] += sz[v];
-  }
-  if (imaior != -1) {
-    swap(adj[u][0], adj[u][imaior]);
+vi sz(MAXN), h(MAXN), par(MAXN), pos(MAXN), sop(MAXN), head(MAXN), tail(MAXN);
+
+void remove_parent(int u = 0){
+  for (int v: adj[u]) {
+    adj[v].erase(find(all(adj[v]), u));
+    remove_parent(v);
   }
 }
-void buildhld(int u = 0, int cost = oo /* TODO:? */, int repr = -1) {
-  pos[u] = ids;
-  orig[ids] = cost;
-  ids++;
-  if (repr == -1) repr = u;
-  head[u] = repr;
-  for (int j = 0; j < adj[u].size(); j++) {
-    if (adj[u][j].first == par[u]) continue;
-    if (j > 0) repr = -1;
-    buildhld(adj[u][j].first, adj[u][j].second, repr);
+
+int fill(int u = 0){
+  for (int i = 0; i < adj[u].size(); i++) {
+    int& v = adj[u][i];
+    h[v] = h[u] + 1;
+    par[v] = u;
+    sz[u] += fill(v);
+    if (sz[adj[u][0]] < sz[v]) swap(adj[u][0], v);
   }
+  return ++sz[u];
+}
+
+void hld(int u = 0){
+  static int ids = 0;
+  sop[pos[u] = ids++] = u;
+  for (int v : adj[u]) {
+    head[v] = (v == adj[u][0] ? head[u] : v);
+    hld(v);
+  }
+  tail[u] = adj[u].size() ? tail[adj[u][0]] : u;
 }
 
 void build() {}  // TODO: Sparse table / Seg tree ...
