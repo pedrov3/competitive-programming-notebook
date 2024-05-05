@@ -1,7 +1,7 @@
 template <typename T>
 struct segtree {
-  vector<T> seg;
   int n;
+  vector<T> seg;
   segtree(int _n) : n(_n), seg(2 * _n) {}
   T get(int l, int r) {
     T left = T(), right = T();
