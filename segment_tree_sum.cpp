@@ -2,7 +2,7 @@ template<typename T>
 struct segtree{
     int n;
     vector<T> seg;
-    segtree(int _n) : n(_n), seg(4 * _n){ }
+    segtree(int _n) : n(_n), seg(4 * _n){}
     void set(int i, T v, int pos, int lx, int rx) {
       if (rx - lx == 1){
           seg[pos] = v;
@@ -23,6 +23,5 @@ struct segtree{
     T get(int l, int r){ return get(l, r, 0, 0, n); }
 };
 struct item {
-  item operator+(item oth) {
-  }
+  item operator+(item oth) {}
 };
