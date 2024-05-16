@@ -15,7 +15,7 @@ int fill(int u = 0){
     h[v] = h[u] + 1;
     par[v] = u;
     sz[u] += fill(v);
-    if (sz[adj[u][0]] < sz[v]) swap(adj[u][0], v);
+    if (sz[adj[u][0]] < sz[v]) swap(adj[u][0], adj[u][i]);
   }
   return ++sz[u];
 }
