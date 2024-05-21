@@ -1,15 +1,15 @@
-Finito, Alternado, Simetrico, 2 Jogadores.
-Outras coisas: assume-se que ambos tem conhecimento total do estado do jogo;
+Finito, Alternado, Simétrico, 2 Jogadores.
+Outras coisas: assume-se que ambos tem conhecimento total do estado do jogo.
 
-Jogo de nim clássico: varias pilhas pode tirar o quanto quiser de apenas uma pilha.
+Jogo de nim clássico: várias pilhas, pode tirar o quanto quiser de apenas uma das pilhas.
 
-O resultado é que se o xor de todas as pilhas for == 0, então é um estado perdedor
-Se o xor de todas as pilhas for != 0, então é um estado vencedor
+Se o xor de todas as pilhas for == 0, então é um estado perdedor,
+caso contrário, é um estado vencedor
 
 Seja cp := configuração de uma pilha/jogo
 
 	Grundy(cp) = mex{ resultado(cp, acao) }, onde acao \in acoes(cp),
 
-Teorema de sprague-grundy:
+Teorema de Sprague-Grundy:
 	Um jogo composto tem o seguinte grundy number / nimber / nímero:
 	Grundy(jogo_composto) = xor_grande grundy(sub_jogo), onde sub_jogo \in jogo_composto
