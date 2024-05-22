@@ -15,8 +15,7 @@ int _create() {
 void initseg() { _create(); }  // TODO: chamar antes de usar
 
 ll getseg(ll l, ll r, int pos, ll lx, ll rx) {
-  if (lx >= r || rx <= l) return 0LL;
-  if (pos == -1) return 0LL;
+  if (pos == -1 || lx >= r || rx <= l) return 0LL;
   if (lx >= l && rx <= r) {
     return seg[pos].val;
   }

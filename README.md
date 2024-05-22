@@ -1,6 +1,6 @@
 # competitive-programming-notebook
 
-- [ ] Diminuir o tamanho do código do [Aho-corasick](aho-corasick.cpp)
+- [X] Diminuir o tamanho do código do [Aho-corasick](aho-corasick.cpp)
 - [ ] substituir begin(), end() para all()
 - [ ] substituir vector<int> para vi
 - [ ] Melhorar comentários na [bit2d](bit2d.cpp)

@@ -1,5 +1,5 @@
 #define to_i(ch) (ch - 'a');     // TODO
-const int MAX = 112345, K = 26;  // TODO
+const int K = 26;  // TODO
 struct node {
   int term = 0, p, pc, link = -1, exi = -1, occ = 0;
   vi nxt, go, ids;
