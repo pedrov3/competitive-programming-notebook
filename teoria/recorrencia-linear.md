@@ -8,21 +8,21 @@ tags:
 
 Uma recorrência linear na forma:
 
-$f(n) = a_1 \cdot f(n-1) + a_2 \cdot f(n-2) + \cdots + a_k \cdot f(n - k)$
+$$f(n) = a_1 \cdot f(n-1) + a_2 \cdot f(n-2) + \cdots + a_k \cdot f(n - k)$$
 
 tem o seguinte polinômio característico:
 
-$X^k = a_1 \cdot X^{k-1} + a_2 \cdot X^{k-2} + \cdots + a_{k-1} \cdot X^1 + a_k \cdot X^0$
+$$X^k = a_1 \cdot X^{k-1} + a_2 \cdot X^{k-2} + \cdots + a_{k-1} \cdot X^1 + a_k \cdot X^0$$
 
 ## Fórmula fechada
 
 Dado uma recorrência linear com polinômio característico igual a:
 
-$(X - r_1)(X - r_1)(X - r_2)(X - r_3) = 0$
+$$(X - r_1)(X - r_1)(X - r_2)(X - r_3) = 0$$
 
 tem fórmula fechada na forma:
 
-$f(n) = c_1 \cdot r_1^n + c_2 \cdot n \cdot r_1^n + c_3 \cdot r_2^n + c_4 \cdot r_3^n $
+$$f(n) = c_1 \cdot r_1^n + c_2 \cdot n \cdot r_1^n + c_3 \cdot r_2^n + c_4 \cdot r_3^n $$
 
 ## Truque da soma acumulada de Fibonacci
 
@@ -34,25 +34,25 @@ A partir do fato que $f(n-2) = f(n) - f(n-1)$ é o mesmo que $f(n) = f(n + 2) - 
 
 Podemos calcular $s(n) = f(0) + f(1) + \dots + f(n)$, através da seguinte soma telescópica:
 
-$f(0) = f(2) - f(1)$
+$$f(0) = f(2) - f(1)$$
 
-$f(1) = f(3) - f(2)$
+$$f(1) = f(3) - f(2)$$
 
-$f(2) = f(4) - f(3)$​
+$$f(2) = f(4) - f(3)$$
 
-​              $\cdots$
+​              $$\cdots$$
 
-$f(n-1) = f(n+1) - f(n)$
+$$f(n-1) = f(n+1) - f(n)$$
 
-$f(n) = f(n+2) - f(n+1)$
+$$f(n) = f(n+2) - f(n+1)$$
 
 Somando essas igualdades temos:
 
-$f(0) + f(1) + \cdots + f(n-1) + f(n) = \Big(f(2) - f(1)\Big) + \Big(f(3) - f(2)\Big)  + \cdots + \Big( f(n+1) - f(n) \Big) + \Big( f(n+2) - f(n+1)\Big)$
+$$f(0) + f(1) + \cdots + f(n-1) + f(n) = \Big(f(2) - f(1)\Big) + \Big(f(3) - f(2)\Big)  + \cdots + \Big( f(n+1) - f(n) \Big) + \Big( f(n+2) - f(n+1)\Big)$$
 
-$s(n) = -f(1) + f(n+2)$
+$$s(n) = -f(1) + f(n+2)$$
 
-$s(n) = f(n + 2) - f(1)$
+$$s(n) = f(n + 2) - f(1)$$
 
 ## Problemas para praticar
 
@@ -68,19 +68,19 @@ $$f(n) = c_1 \cdot {\Big(\dfrac{1 + R}{2}\Big)}^n +  c_2 \cdot {\Big(\dfrac{1 - 
 
 que por sua vez tem polinômio característico igual:
 
-$\Big(X - \Big(\dfrac{1 + R}{2}\Big)\Big)\Big(X - \Big(\dfrac{1 - R}{2}\Big)\Big) = 0$
+$$\Big(X - \Big(\dfrac{1 + R}{2}\Big)\Big)\Big(X - \Big(\dfrac{1 - R}{2}\Big)\Big) = 0$$
 
 expandindo essa equação temos:
 
 $$ \Big(X - \Big(\dfrac{1 + R}{2}\Big)\Big)\Big(X - \Big(\dfrac{1 - R}{2}\Big)\Big) = X^2 - X \Big(\dfrac{1 - R}{2}\Big) - \Big(\dfrac{1 + R}{2}\Big) X  + \Big(\dfrac{1 + R}{2}\Big) \Big(\dfrac{1 - R}{2}\Big) = $$
 
-$= X^2 - X\Big(\dfrac{1 - R + 1 + R}{2}\Big) + \dfrac{1 - R^2}{4} = X^2 - X + \dfrac{1 - (i\cdot\sqrt{4T - 1})^2}{4} = X^2 - X  + \dfrac{1 -(-1 \cdot (4T - 1))}{4} = $
+$$= X^2 - X\Big(\dfrac{1 - R + 1 + R}{2}\Big) + \dfrac{1 - R^2}{4} = X^2 - X + \dfrac{1 - (i\cdot\sqrt{4T - 1})^2}{4} = X^2 - X  + \dfrac{1 -(-1 \cdot (4T - 1))}{4} = $$
 
-$= X^2 - X + T = 0$
+$$= X^2 - X + T = 0$$
 
 que colocando no formato $X^2 = X^1 - T \cdot X^0$ evidencia que podemos aplicar o truque (1) para descobrir que $f(n)$ tem a forma:
 
-$f(n) = f(n - 1) - T \cdot f(n - 2)$
+$$f(n) = f(n - 1) - T \cdot f(n - 2)$$
 
 Para nossa instância podemos verificar que $f(0) = 0$ e $f(1) = 1$, desse modo temos que $f(n)$ como descrito no enunciado é o mesmo que:
 
@@ -116,25 +116,25 @@ A partir do fato que $-T \cdot f(n-2) = f(n) - f(n-1)$ é o mesmo que $-T \cdot 
 
 Podemos encontrar $s(n)$ através da seguinte soma telescópica:
 
-$-T \cdot f(0) = f(2) - f(1)$
+$$-T \cdot f(0) = f(2) - f(1)$$
 
-$-T \cdot f(1) = f(3) - f(2)$
+$$-T \cdot f(1) = f(3) - f(2)$$
 
-$-T \cdot f(2) = f(4) - f(3)$
+$$-T \cdot f(2) = f(4) - f(3)$$
 
-​              $\cdots$
+​              $$\cdots$$
 
-$-T \cdot f(n-1) = f(n+1) - f(n)$
+$$-T \cdot f(n-1) = f(n+1) - f(n)$$
 
-$-T \cdot f(n) = f(n+2) - f(n+1)$
+$$-T \cdot f(n) = f(n+2) - f(n+1)$$
 
 Somando essas igualdades temos:
 
-$-T \cdot \Big(f(0) + f(1) + \cdots + f(n-1) + f(n) \Big) = \Big(f(2) - f(1)\Big) + \Big(f(3) - f(2)\Big)  + \cdots + \Big( f(n+1) - f(n) \Big) + \Big( f(n+2) - f(n+1)\Big)$
+$$-T \cdot \Big(f(0) + f(1) + \cdots + f(n-1) + f(n) \Big) = \Big(f(2) - f(1)\Big) + \Big(f(3) - f(2)\Big)  + \cdots + \Big( f(n+1) - f(n) \Big) + \Big( f(n+2) - f(n+1)\Big)$$
 
-$-T \cdot s(n) = -f(1) + f(n+2)$
+$$-T \cdot s(n) = -f(1) + f(n+2)$$
 
-$s(n) = \dfrac{f(n + 2) - f(1)}{-T}$
+$$s(n) = \dfrac{f(n + 2) - f(1)}{-T}$$
 
 $\blacksquare$
 
