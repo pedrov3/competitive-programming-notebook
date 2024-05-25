@@ -26,7 +26,7 @@ $f(n) = c_1 \cdot r_1^n + c_2 \cdot n \cdot r_1^n + c_3 \cdot r_2^n + c_4 \cdot 
 
 ## Truque da soma acumulada de Fibonacci
 
-Seja  $ f(n) = \begin{cases}  n, & \text{se  $n \le 1$}\\\\  f(n-1) + f(n-2), & \text{caso contrário} \end{cases}$
+Seja  $$ f(n) = \begin{cases}  n, & \text{se  $n \le 1$}\\\\  f(n-1) + f(n-2), & \text{caso contrário} \end{cases}$$
 
 A partir do fato que $f(n-2) = f(n) - f(n-1)$ é o mesmo que $f(n) = f(n + 2) - f(n+1)$
 
@@ -70,7 +70,7 @@ $\Big(X - \Big(\dfrac{1 + R}{2}\Big)\Big)\Big(X - \Big(\dfrac{1 - R}{2}\Big)\Big
 
 expandindo essa equação temos:
 
-$ \Big(X - \Big(\dfrac{1 + R}{2}\Big)\Big)\Big(X - \Big(\dfrac{1 - R}{2}\Big)\Big) = X^2 - X \Big(\dfrac{1 - R}{2}\Big) - \Big(\dfrac{1 + R}{2}\Big) X  + \Big(\dfrac{1 + R}{2}\Big) \Big(\dfrac{1 - R}{2}\Big) = $
+$$ \Big(X - \Big(\dfrac{1 + R}{2}\Big)\Big)\Big(X - \Big(\dfrac{1 - R}{2}\Big)\Big) = X^2 - X \Big(\dfrac{1 - R}{2}\Big) - \Big(\dfrac{1 + R}{2}\Big) X  + \Big(\dfrac{1 + R}{2}\Big) \Big(\dfrac{1 - R}{2}\Big) = $$
 
 $= X^2 - X\Big(\dfrac{1 - R + 1 + R}{2}\Big) + \dfrac{1 - R^2}{4} = X^2 - X + \dfrac{1 - (i\cdot\sqrt{4T - 1})^2}{4} = X^2 - X  + \dfrac{1 -(-1 \cdot (4T - 1))}{4} = $
 
@@ -86,7 +86,7 @@ $$f(n) = \begin{cases} n , & \text{se } n \le 1\\\\ f(n - 1) - T \cdot f(n - 2),
 
 que pode ser computada através da seguinte transformação linear em $O(\log{n})$ usando exponenciação binária:
 
-$ \begin{bmatrix}
+$$ \begin{bmatrix}
 f(n) \\\\
 f(n-1)
 \end{bmatrix} = \begin{bmatrix}
@@ -95,9 +95,9 @@ f(n-1)
 \end{bmatrix} \begin{bmatrix}
 f(n-1)  \\\\
 f(n-2)
-\end{bmatrix}$
+\end{bmatrix}$$
 
-$ \begin{bmatrix}
+$$ \begin{bmatrix}
 f(n) \\\\
 f(n-1)
 \end{bmatrix} = \begin{bmatrix}
@@ -106,7 +106,7 @@ f(n-1)
 \end{bmatrix}^{n-1} \begin{bmatrix}
 f(1)  \\\\
 f(0)
-\end{bmatrix}, \text{onde } n \ge 2$
+\end{bmatrix}, \text{onde } n \ge 2$$
 
 Por fim, para computar $s(n) = f(0) + f(1) + \dots + f(n)$ podemos aplicar o truque (3) da seguinte maneira:
 
