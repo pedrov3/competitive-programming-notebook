@@ -26,7 +26,7 @@ $f(n) = c_1 \cdot r_1^n + c_2 \cdot n \cdot r_1^n + c_3 \cdot r_2^n + c_4 \cdot 
 
 ## Truque da soma acumulada de Fibonacci
 
-Seja  $$ f(n) = \begin{cases}  n, & \text{se  $n \le 1$}\\\\  f(n-1) + f(n-2), & \text{caso contrário} \end{cases}$$
+Seja  $$f(n) = \begin{cases}  n, & \text{se  $n \le 1$}\\\\  f(n-1) + f(n-2), & \text{caso contrário} \end{cases}$$
 
 A partir do fato que $f(n-2) = f(n) - f(n-1)$ é o mesmo que $f(n) = f(n + 2) - f(n+1)$
 
