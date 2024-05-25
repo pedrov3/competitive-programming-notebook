@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/detail/standard_policies.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+#define int long long
+#define all(x) x.begin(), x.end()
+
+using namespace __gnu_pbds;
+using namespace std;
+
+template <class T>
+using ordered_set =
+    tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+template <class T>
+using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag,
+                              tree_order_statistics_node_update>;
+
+typedef long long ll;
+typedef pair<int, int> ii;
+typedef tuple<int, int, int> iii;
+typedef vector<int> vi;
+const ll oo = 1987654321987654321;
+
+template <class It>
+void db(It b, It e) {
+  for (auto it = b; it != e; it++) cout << *it << ' ';
+  cout << endl;
+}
+
+int32_t main() {
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
+}
