@@ -62,7 +62,7 @@ Em resumo, nesse problema a parte principal de sua solução é aplicar os truqu
 
 A partir do truque (2) podemos notar que $f(n)$ do problema tem o formato de uma recorrência linear igual a:
 
-$f(n) = c_1 \cdot {\Big(\dfrac{1 + R}{2}\Big)}^n +  c_2 \cdot {\Big(\dfrac{1 - R}{2}\Big)}^n$
+$$f(n) = c_1 \cdot {\Big(\dfrac{1 + R}{2}\Big)}^n +  c_2 \cdot {\Big(\dfrac{1 - R}{2}\Big)}^n$$
 
 que por sua vez tem polinômio característico igual:
 
