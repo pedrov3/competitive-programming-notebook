@@ -1,6 +1,10 @@
-## Resumo: Recorrências lineares 
+---
+title: 'Resumo: Recorrências lineares'
+date: 2024-05-24 23:37:02
+tags:
+---
 
-### 1. Polinômio característico
+## Polinômio característico
 
 Uma recorrência linear na forma:
 
@@ -10,7 +14,7 @@ tem o seguinte polinômio característico:
 
 $X^k = a_1 \cdot X^{k-1} + a_2 \cdot X^{k-2} + \cdots + a_{k-1} \cdot X^1 + a_k \cdot X^0$
 
-### 2. Fórmula fechada
+## Fórmula fechada
 
 Dado uma recorrência linear com polinômio característico igual a:
 
@@ -20,9 +24,9 @@ tem fórmula fechada na forma:
 
 $f(n) = c_1 \cdot r_1^n + c_2 \cdot n \cdot r_1^n + c_3 \cdot r_2^n + c_4 \cdot r_3^n $
 
-### 3. Truque da soma acumulada de Fibonacci 
+## Truque da soma acumulada de Fibonacci
 
-Seja $f(n) = \begin{cases} n, & \text{se } n \le 1 \\ f(n-1) + f(n-2), & \text{caso contrário} \end{cases}$
+Seja  $ f(n) = \begin{cases}  n, & \text{se  $n \le 1$}\\\\  f(n-1) + f(n-2), & \text{caso contrário} \end{cases}$
 
 A partir do fato que $f(n-2) = f(n) - f(n-1)$ é o mesmo que $f(n) = f(n + 2) - f(n+1)$
 
@@ -48,11 +52,13 @@ $s(n) = -f(1) + f(n+2)$
 
 $s(n) = f(n + 2) - f(1)$
 
-### Problemas para praticar:
+## Problemas para praticar
 
 - [BEE 3413 - Baita Desafio Complexo - Beecrowd](https://judge.beecrowd.com/pt/problems/view/3413)
 
-**Solução:** Em resumo, nesse problema a parte principal de sua solução é aplicar os truques (1) e (2) ao contrário, ou seja, a partir de uma fórmula fechada encontrar a recorrência linear correspondente, uma vez que temos essa recorrência linear podemos computá-la em um ponto específico rapidamente usando exponenciação de matrizes (usando exponenciação binária) e para computar sua soma acumulada arrematamos o problema usando o truque (3). A seguir uma descrição mais detalhada.
+### **Solução:** 
+
+Em resumo, nesse problema a parte principal de sua solução é aplicar os truques (1) e (2) ao contrário, ou seja, a partir de uma fórmula fechada encontrar a recorrência linear correspondente, uma vez que temos essa recorrência linear podemos computá-la em um ponto específico rapidamente usando exponenciação de matrizes (usando exponenciação binária) e para computar sua soma acumulada arrematamos o problema usando o truque (3). A seguir uma descrição mais detalhada.
 
 A partir do truque (2) podemos notar que $f(n)$ do problema tem o formato de uma recorrência linear igual a:
 
@@ -76,30 +82,30 @@ $f(n) = f(n - 1) - T \cdot f(n - 2)$
 
 Para nossa instância podemos verificar que $f(0) = 0$ e $f(1) = 1$, desse modo temos que $f(n)$ como descrito no enunciado é o mesmo que:
 
-$f(n) = \begin{cases} n , & \text{se } n \le 1\\f(n - 1) - T \cdot f(n - 2), & \text{caso contrário}\end{cases}$
+$f(n) = \begin{cases} n , & \text{se } n \le 1\\\\ f(n - 1) - T \cdot f(n - 2), & \text{caso contrário}\end{cases}$
 
 que pode ser computada através da seguinte transformação linear em $O(\log{n})$ usando exponenciação binária:
 
 $ \begin{bmatrix}
-f(n) \\
+f(n) \\\\
 f(n-1)
 \end{bmatrix} = \begin{bmatrix}
-1 & -T \\
+1 & -T \\\\
 1 & 0
 \end{bmatrix} \begin{bmatrix}
-f(n-1)  \\
-f(n-2) 
+f(n-1)  \\\\
+f(n-2)
 \end{bmatrix}$
 
 $ \begin{bmatrix}
-f(n) \\
+f(n) \\\\
 f(n-1)
 \end{bmatrix} = \begin{bmatrix}
-1 & -T \\
+1 & -T \\\\
 1 & 0
 \end{bmatrix}^{n-1} \begin{bmatrix}
-f(1)  \\
-f(0) 
+f(1)  \\\\
+f(0)
 \end{bmatrix}, \text{onde } n \ge 2$
 
 Por fim, para computar $s(n) = f(0) + f(1) + \dots + f(n)$ podemos aplicar o truque (3) da seguinte maneira:
@@ -140,7 +146,7 @@ signed main(){
 
     int t, m;
     cin >> t >> m;
-    
+
     auto f = [&](int n){
         if (n <= 1) return n;
         Matrix base({{1, -t}, {1, 0}});
@@ -149,9 +155,10 @@ signed main(){
     };
 
     auto s = [&](int n){
-        return (f(n + 2) - f(1)) * expbin(-t, P - 2) // inverso modular através do 'Fermat's little theorem';
+        // inverso modular através do 'Fermat's little theorem';
+        return (f(n + 2) - f(1)) * expbin(-t, P - 2) 
     };
-    
+
     vi a(m);
     cin >> a;
     int l = *max_element(all(a));
@@ -166,8 +173,7 @@ signed main(){
 }
 ```
 
-### Referências 
+## Referências
 
 - [Notas de aula de recorrências lineares do Profº Leandro Zatesko](https://pessoal.dainf.ct.utfpr.edu.br/zatesko/icsd21.html#:~:text=AULA%206%3A%20Recorr%C3%AAncias%20lineares)
 - [Oficina {28set,9nov}22: Upsolving da 1ª Fase Zero da Maratona de Programação da SBC - A partir de 2 hr 59 min 47 seg](https://youtu.be/C1uwYwjYqdE?si=5NTejm-K9_rcsE3L&t=10787)
-
