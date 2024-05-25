@@ -82,7 +82,7 @@ $f(n) = f(n - 1) - T \cdot f(n - 2)$
 
 Para nossa instância podemos verificar que $f(0) = 0$ e $f(1) = 1$, desse modo temos que $f(n)$ como descrito no enunciado é o mesmo que:
 
-$f(n) = \begin{cases} n , & \text{se } n \le 1\\\\ f(n - 1) - T \cdot f(n - 2), & \text{caso contrário}\end{cases}$
+$$f(n) = \begin{cases} n , & \text{se } n \le 1\\\\ f(n - 1) - T \cdot f(n - 2), & \text{caso contrário}\end{cases}$$
 
 que pode ser computada através da seguinte transformação linear em $O(\log{n})$ usando exponenciação binária:
 
