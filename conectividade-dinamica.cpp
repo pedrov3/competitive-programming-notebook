@@ -1,66 +1,56 @@
-vi p, rnk;
-int qtde;  // TODO
+const int MAX = 212345;
+int tamseg = 0; // TODO
+vi queries(MAX, -1);
+vector<ii> seg[4 * MAX];
 
-vector<pair<int *, int>> stk;
+dsu_rollback dsu(MAX); // TODO
 
-vector<ii> seg[2097152];
-int tamseg;  // TODO
-
-void init(int n) {
-  p.resize(n);
-  rnk.resize(n);
-  iota(p.begin(), p.end(), 0);
-}
-
-int __find(int u) { return p[u] == u ? u : __find(p[u]); }
-
-void join(int u, int v) {
-  u = __find(u);
-  v = __find(v);
-  if (u == v) return;
-  stk.emplace_back(&qtde, qtde);
-  qtde--;
-  if (rnk[u] > rnk[v]) {
-    stk.emplace_back(&p[v], p[v]);
-    p[v] = u;
-  } else {
-    stk.emplace_back(&p[u], p[u]);
-    stk.emplace_back(&rnk[v], rnk[v]);
-    p[u] = v;
-    if (rnk[u] == rnk[v]) rnk[v]++;
-  }
-}
-
-void undo(int prev_size) {
-  while (stk.size() > prev_size) {
-    auto [a, b] = stk.back();
-    *a = b;
-    stk.pop_back();
-  }
-}
-
-void addseg(iiii &val, int pos, int lx, int rx) {
-  auto &[l, r, u, v] = val;  // lifetime of (u, v)
+void add(iiii &val, int pos, int lx, int rx) {
+  auto &[l, r, u, v] = val;
   if (lx >= r || rx <= l) return;
   if (lx >= l && rx <= r) {
     seg[pos].emplace_back(u, v);
     return;
   }
   int mid = lx + (rx - lx) / 2;
-  addseg(val, 2 * pos + 1, lx, mid);
-  addseg(val, 2 * pos + 2, mid, rx);
+  add(val, 2 * pos + 1, lx, mid);
+  add(val, 2 * pos + 2, mid, rx);
 }
 
 void solve(int pos, int lx, int rx) {
-  int antes = stk.size();
-  for (auto &[u, v] : seg[pos]) join(u, v);
+  int antes = dsu.checkpoint();
+  for (auto &[u, v] : seg[pos]) dsu.join(u, v);
   if (rx - lx == 1) {
-    cout << qtde << "\n";
-    undo(antes);
+    if (queries[lx] != -1) {
+        // TODO: resposta no tempo lx
+    }
+    dsu.undo(antes);
     return;
   }
   int mid = lx + (rx - lx) / 2;
   solve(2 * pos + 1, lx, mid);
   solve(2 * pos + 2, mid, rx);
-  undo(antes);
+  dsu.undo(antes);
+}
+
+vector<iiii> lifetime;
+map<ii, int> edges;
+
+void addEdge(int u, int v, int timer) {
+  if (u > v) swap(u, v);
+  edges[ii(u, v)] = timer;
+}
+
+void remEdge(int u, int v, int timer) { // assume que (u, v) existe
+  if (u > v) swap(u, v);
+  int l = edges[ii(u, v)], r = timer;
+  lifetime.emplace_back(l, r, u, v);
+  edges.erase(ii(u, v));
+}
+
+void doAll(int timer) {
+  map<ii, int> tmp = edges;
+  for (auto &[uv, _] : tmp) remEdge(uv.first, uv.second, timer);
+  for (auto &val : lifetime) add(val, 0, 0, tamseg);
+  solve(0, 0, tamseg); 
 }
