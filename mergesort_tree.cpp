@@ -52,6 +52,6 @@ struct merge_sort_tree {
            get(l, r, x, 2 * pos + 2, mid, rx);
   }
   
-  // #qtde <= x no intervalo [l, r)?
+  // qtde <= x no intervalo [l, r)?
   int get(int l, int r, int x) { return get(l, r, x, 0, 0, n); }
 };
