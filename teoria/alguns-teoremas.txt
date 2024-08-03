@@ -1,0 +1,4 @@
+se gcd(x, M) = 1 então x^{phi(M) - 1} = x^{-1} (mod M)
+
+Para números inteiros x em um intervalo a, b (a <= x <= b) o maior gcd possível entre um par de inteiros é no máximo (b - a);
+Justificativa: GCD(n, m) = GCD(n - m, m) <= n - m <= B - A.

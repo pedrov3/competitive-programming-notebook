@@ -8,17 +8,23 @@ struct dsu_rollback {
   }
 
   stack<pair<int*, int>> stk;
+  stack<int> qt;
 
   void join(int u, int v) {
     u = find(u);
     v = find(v);
-    if (u == v) return;
+    if (u == v){
+        qt.emplace(0);
+        return;
+    }
     if (rnk[u] > rnk[v]) {
+      qt.emplace(2);
       stk.emplace(&p[v], p[v]);
       stk.emplace(&sz[u], sz[u]);
       p[v] = u;
       sz[u] += sz[v];
     } else {
+      qt.emplace(3);
       stk.emplace(&p[u], p[u]);
       stk.emplace(&rnk[v], rnk[v]);
       stk.emplace(&sz[v], sz[v]);
@@ -36,5 +42,10 @@ struct dsu_rollback {
       *a = b;
       stk.pop();
     }
+  }
+  void undo(){ // TODO: 
+    int q = qt.top();
+    qt.pop();
+    undo(stk.size() - q);
   }
 };

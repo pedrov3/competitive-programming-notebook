@@ -1,7 +1,7 @@
 const int MAX = 212345;
 int tamseg = 0; // TODO
 vi queries(MAX, -1);
-vector<ii> seg[4 * MAX];
+vector<ii> seg[4 * MAX]; // TODO: tamanho mais preciso?
 
 dsu_rollback dsu(MAX); // TODO
 
@@ -33,7 +33,7 @@ void solve(int pos, int lx, int rx) {
   dsu.undo(antes);
 }
 
-vector<iiii> lifetime;
+vector<iiii> lifetime; // TODO: pode ser removido em caso de MLE
 map<ii, int> edges;
 
 void addEdge(int u, int v, int timer) {
@@ -49,8 +49,22 @@ void remEdge(int u, int v, int timer) { // assume que (u, v) existe
 }
 
 void doAll(int timer) {
-  map<ii, int> tmp = edges;
-  for (auto &[uv, _] : tmp) remEdge(uv.first, uv.second, timer);
+  for (auto &[uv, l] : edges){
+    auto [u, v] = uv;
+    if (u > v) swap(u, v);
+    int r = timer;
+    lifetime.emplace_back(l, r, u, v);
+  }
   for (auto &val : lifetime) add(val, 0, 0, tamseg);
   solve(0, 0, tamseg); 
+}
+
+void zerar(){
+    int sz = 1;
+    while (sz < tamseg) sz *= 2;
+    sz *= 2;
+    for (int i=0; i < sz; i++) seg[i].clear();
+    for (int i=0; i < tamseg; i++) queries[i] = -1;
+    edges.clear();
+    lifetime.clear();
 }
