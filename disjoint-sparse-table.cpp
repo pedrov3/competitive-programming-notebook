@@ -24,7 +24,7 @@ void build(vi &vet) {
   }
 }
 
-int get(int l, int r) { // [l, r]
+int get(int l, int r) {  // [l, r]
   if (l == r) return tab[0][l];
   int h = __builtin_clz(1) - __builtin_clz(l ^ r);
   return op(tab[h][l], tab[h][r]);

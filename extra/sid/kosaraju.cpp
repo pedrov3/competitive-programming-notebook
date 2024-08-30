@@ -38,7 +38,7 @@ void scc(vector<vi> &adj) {
   }
 
   memset(vis, 0, sizeof(vis));
-  reverse(order.begin(), order.end());
+  reverse(all(order));
   nodos_raiz.clear();
   for (auto &u : order) {
     if (!vis[u]) {

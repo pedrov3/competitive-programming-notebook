@@ -20,7 +20,7 @@ void rem(int i) {
 }
 
 vi mo(vector<item> &ev) {
-  sort(ev.begin(), ev.end(), cmp);
+  sort(all(ev), cmp);
   vi retval(ev.size());
   int _l = 0, _r = -1;
   for (auto &[l, r, id] : ev) {

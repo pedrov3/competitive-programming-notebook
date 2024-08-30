@@ -1,4 +1,5 @@
-// from: https://github.com/brunomaletta/Biblioteca/blob/dbcc61b3cb386ad00c9036a5b107a81b1817920f/Codigo/Primitivas/modularArithmetic.cpp
+// from:
+// https://github.com/brunomaletta/Biblioteca/blob/dbcc61b3cb386ad00c9036a5b107a81b1817920f/Codigo/Primitivas/modularArithmetic.cpp
 // Aritmetica Modular
 //
 // O mod tem q ser primo

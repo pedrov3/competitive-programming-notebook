@@ -1,10 +1,4 @@
 // problema da mochila combinado com conjunto independente em uma árvore
-#include <bits/stdc++.h>
-#define all(x) x.begin(), x.end()
-
-using namespace std;
-typedef vector<int> vi;
-
 const int MAX = 303;
 int n, x;
 int w[MAX], v[MAX], sz[MAX];

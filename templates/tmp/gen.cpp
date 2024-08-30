@@ -14,6 +14,8 @@ signed main(signed argc, char *argv[]) {
     exit(1);
   }
   rnd = mt19937(atoi(argv[1]));
-  
+ 
+  int n = gen(1, 10);
+  cout << n << "\n";
   
 }

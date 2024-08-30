@@ -1,15 +1,3 @@
-#include <bits/stdc++.h>
-// TODO: simplificar
-// TODO: usar parametro por referência
-
-using namespace std;
-
-typedef long double ld;
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-const ll oo = 1987654321987654321;
-
 typedef complex<double> cd;
 
 constexpr double PI = acos(-1);
@@ -61,7 +49,7 @@ vector<cd> inv_fft(vector<cd> a) {
   return a;
 }
 
-vector<ll> multiply(vi a, vi b) {
+vi multiply(vi a, vi b) {
   int n = 1;
   while (n < a.size() + b.size()) n *= 2;
   vector<cd> _a(n), _b(n);
@@ -80,7 +68,7 @@ vector<ll> multiply(vi a, vi b) {
     c1[i] = a1[i] * b1[i];
   }
   vector<cd> retval_cd = inv_fft(c1);
-  vector<ll> retval(n);
+  vi retval(n);
   for (int i = 0; i < n; i++) {
     retval[i] = round(retval_cd[i].real());
   }
@@ -105,7 +93,7 @@ int main() {
     cin >> coef;
     b[i] = coef;
   }
-  vector<long long> retval = multiply(a, b);
+  vi retval = multiply(a, b);
   for (auto &x : retval) {
     cout << x << " ";
   }

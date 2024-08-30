@@ -20,7 +20,7 @@ void dfs(int u, int p) {
 }
 
 void articbridges(int n) {
-  fill(tin.begin(), tin.begin() + n + 5, -1);
+  fill(all(tin), -1);
   tk = 0;
   arti.clear();
   brid.clear();

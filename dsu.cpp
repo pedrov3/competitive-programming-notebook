@@ -1,8 +1,6 @@
 struct dsu {
   vi p, rnk;
-  dsu(int n) : p(n), rnk(n) {
-    iota(all(p), 0);
-  }
+  dsu(int n) : p(n), rnk(n) { iota(all(p), 0); }
 
   int find(int u) {
     if (p[u] == u) return u;

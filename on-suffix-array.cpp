@@ -1,4 +1,4 @@
-vector<int> s;
+vi s;
 
 inline bool leq(int a1, int a2, int b1, int b2) {
   return (a1 < b1 || (a1 == b1 && a2 <= b2));

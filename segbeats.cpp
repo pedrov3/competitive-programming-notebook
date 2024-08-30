@@ -35,7 +35,7 @@ void initseg(int n) {
   while (tamseg < n) tamseg *= 2;
 }
 
-void buildseg(vector<int> &a, int pos, int lx, int rx) {
+void buildseg(vi &a, int pos, int lx, int rx) {
   if (rx - lx == 1) {
     if (lx < (int)a.size()) {
       seg[pos].max1 = seg[pos].sum = a[lx];

@@ -7,7 +7,7 @@ struct Matrix {  // Estrutura para representar uma matriz
       for (auto &y : x) y = 0;
     for (int i = 0; i < MAX; i++) m[i][i] = identify;
   }
-  Matrix(vector<vector<int>> mat) {
+  Matrix(vector<vi> mat) {
     m.resize(MAX, vi(MAX));
     for (auto &x : m)
       for (auto &y : x) y = 0;

@@ -5,7 +5,7 @@ int b2 = uniform_int_distribution<int>(1, P - 1)(rmg);
 
 struct hash_str {
   vector<ll> h1, p1, h2, p2;
-  hash_str(){}
+  hash_str() {}
   hash_str(string &s) : h1(s.size()), p1(s.size()), h2(s.size()), p2(s.size()) {
     int n = s.size();
     h1[0] = s[0];
@@ -33,8 +33,5 @@ struct hash_str {
     }
     return {ans1, ans2};
   }
-  int size(){
-    return h1.size();
-  }
+  int size() { return h1.size(); }
 };
-

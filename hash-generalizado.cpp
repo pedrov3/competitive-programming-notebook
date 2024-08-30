@@ -1,28 +1,15 @@
-// TODO: modularizar
-
-#include <bits/stdc++.h>
 #define to_i(ch) (ch - 'a' + 1)
-#define MAX 112345
-
-using namespace std;
-
-typedef long double ld;
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-const ll oo = 1987654321987654321;
-
 const ll P = 1e9 + 7;
 const int MAX_PREC = 10;
 
 mt19937 rmg((int)chrono::steady_clock::now().time_since_epoch().count());
 
 bool flag = false;
-vector<ll> b;
-vector<vector<ll>> p;
+vi b;
+vector<vi> p;
 
 struct hash_str {
-  vector<vector<ll>> h;
+  vector<vi> h;
   hash_str(string &s) {
     int n = s.size();
     h.resize(MAX_PREC);
@@ -53,8 +40,8 @@ struct hash_str {
       }
     }
   }
-  vector<ll> substr(int l, int r) {
-    vector<ll> retval;
+  vi substr(int l, int r) {
+    vi retval;
     if (l == 0) {
       for (int k = 0; k < MAX_PREC; k++) {
         retval.emplace_back(h[k][r]);
@@ -71,14 +58,14 @@ struct hash_str {
     return retval;
   }
 
-  vector<ll> f(int i, char ch) {
+  vi f(int i, char ch) {
     int a = i - 1;
     int _b = p[0].size() - i - 1;
-    vector<ll> ha = a >= 0 ? sub_hash(0, a) : vector<ll>(MAX_PREC, 0LL);
-    vector<ll> hb = i < (int)p[0].size() - 1 ? sub_hash(i + 1, p[0].size() - 1)
-                                             : vector<ll>(MAX_PREC, 0LL);
+    vi ha = a >= 0 ? sub_hash(0, a) : vi(MAX_PREC, 0LL);
+    vi hb = i < (int)p[0].size() - 1 ? sub_hash(i + 1, p[0].size() - 1)
+                                     : vi(MAX_PREC, 0LL);
 
-    vector<ll> retval(MAX_PREC);
+    vi retval(MAX_PREC);
     for (int k = 0; k < MAX_PREC; k++) {
       retval[k] = (((ha[k] * (_b >= p[k].size() - 1 ? 1 : p[k][_b + 1])) % P +
                     (to_i(ch) * p[k][_b]) % P) %
@@ -92,7 +79,7 @@ struct hash_str {
 
 int who[MAX][26];
 
-bool __cmp(vector<ll> &a, vector<ll> &b) {
+bool __cmp(vi &a, vi &b) {
   int n = a.size();
   for (int i = 0; i < n; i++) {
     if (a[i] != b[i]) return false;
@@ -112,13 +99,13 @@ int main() {
 
   hash_str hs(s), hp(p);
 
-  map<vector<ll>, ii> tab;
-  vector<ll> hash_orig = hp.sub_hash(0, m - 1);
+  map<vi, ii> tab;
+  vi hash_orig = hp.sub_hash(0, m - 1);
 
   // Pegar todos os hashes do padrão, para cada uma das alterações
   for (int i = 0; i < m; i++) {
     for (char ch = 'a'; ch <= 'z'; ch++) {
-      vector<ll> val = hp.f(i, ch);
+      vi val = hp.f(i, ch);
       //	cout << val[0] << "\n";
       tab[val] = make_pair(i, p[i]);
     }
@@ -126,7 +113,7 @@ int main() {
 
   int total = 0;
   for (int i = 0; i < n - m + 1; i++) {
-    vector<ll> val = hs.sub_hash(i, i + m - 1);
+    vi val = hs.sub_hash(i, i + m - 1);
     int pos;
     char ch;
     if (tab.find(val) == tab.end()) {

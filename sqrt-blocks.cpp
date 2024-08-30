@@ -1,6 +1,6 @@
 // TODO: B
 auto f = [&](int l, int r, function<void(int i)> apply_elem,
-             function<void(int i)> apply_block) { // [l, r]  0-indexed
+             function<void(int i)> apply_block) {  // [l, r]  0-indexed
   int bl = l / B, br = r / B;
   if (bl == br) {
     for (int i = l; i <= r; i++) apply_elem(i);

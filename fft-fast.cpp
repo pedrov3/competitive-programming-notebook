@@ -48,9 +48,10 @@ void fft(vector<cd> &a, bool invert) {
     }
   }
 }
-vector<ll> multiply(vector<int> const &a, vector<int> const &b) {
-  vector<cd> fa(a.begin(), a.end());
-  vector<cd> fb(b.begin(), b.end());
+
+vi multiply(vi const &a, vi const &b) {
+  vector<cd> fa(all(a));
+  vector<cd> fb(all(b));
   int n = 1;
   while (n < int(a.size() + b.size())) n <<= 1;
   fa.resize(n);
@@ -59,7 +60,7 @@ vector<ll> multiply(vector<int> const &a, vector<int> const &b) {
   fft(fb, false);
   for (int i = 0; i < n; i++) fa[i] = fa[i] * fb[i];
   fft(fa, true);
-  vector<ll> result(n);
+  vi result(n);
   for (int i = 0; i < n; i++) result[i] = round(fa[i].a);
   return result;
 }

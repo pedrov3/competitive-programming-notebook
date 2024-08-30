@@ -1,4 +1,4 @@
-vector<int> bit(MAX, 0);
+vi bit(MAX);
 
 void addbit(int i, int delta) {
   for (; i < MAX; i += i & (-i)) bit[i] += delta;

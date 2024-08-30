@@ -1,12 +1,9 @@
-#include <bits/stdc++.h>
-using namespace std;
+const int MOD = 1e9 + 7;
 
-#define MOD 1000000007
-
-vector<int> are[1123];
+vi are[1123];
 int pd(int u, int p, int k, bool in);
 
-vector<int> memoaux[1123][1123];
+vi memoaux[1123][1123];
 
 int pdaux(int u, int p, int i, int k){
     if (i == are[u].size()){
@@ -63,7 +60,7 @@ int main(){
     for (int i=0; i < n; i++){
         for (int j=0; j <= k; j++){
             memo[i][j][0] = memo[i][j][1] = -1;
-            memoaux[i][j] = vector<int>(are[i].size(), -1);
+            memoaux[i][j] = vi(are[i].size(), -1);
         }
     }
     cout << pd(0, 0, k, 0) << "\n";

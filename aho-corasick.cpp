@@ -1,10 +1,9 @@
-#define to_i(ch) (ch - 'a');     // TODO
-const int K = 26;  // TODO
+#define to_i(ch) (ch - 'a');  // TODO
+const int K = 26;             // TODO
 struct node {
   int term = 0, p, pc, link = -1, exi = -1, occ = 0;
   vi nxt, go, ids;
-  node(int _p = 0, int _pc = 0)
-      : p(_p), pc(_pc), nxt(K, -1), go(K, -1) {}
+  node(int _p = 0, int _pc = 0) : p(_p), pc(_pc), nxt(K, -1), go(K, -1) {}
 };
 
 vector<node> aca;  // TODO: criar o no raiz

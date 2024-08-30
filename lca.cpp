@@ -39,6 +39,6 @@ int lca(int u, int v) {
 
 ll solve(int u, int v) {  // Distancia entre dois vertices com custo
   if (u > v) swap(u, v);
-  if (u == 0) return dist[v]; // TODO
+  if (u == 0) return dist[v];  // TODO
   return dist[u] + dist[v] - 2 * dist[lca(u, v)];
 }

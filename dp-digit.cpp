@@ -7,7 +7,7 @@ vi num2v(int n) {
     retval.push_back(n % 10);
     n /= 10;
   }
-  reverse(retval.begin(), retval.end());
+  reverse(all(retval));
   return retval;
 }
 

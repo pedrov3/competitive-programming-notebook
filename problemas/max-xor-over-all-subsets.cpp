@@ -1,6 +1,6 @@
 // Given a set S of size 1 <= n <= 10^5 with elements 0 <= ai < 2^20. What is
 // the maximum possible xor of the elements of some subset of S?
-const int LOG_A = 20;
+const int LOG_A = 64;
 int basis[LOG_A];
 
 void insertVector(int mask) {

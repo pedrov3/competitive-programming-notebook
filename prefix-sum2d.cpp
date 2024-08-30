@@ -1,5 +1,3 @@
-
-
 int getbit(int lx, int ly, int rx, int ry) {  // entrada - fechado
   rx++;                                       // aberto
   ry++;

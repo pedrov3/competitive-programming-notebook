@@ -1,15 +1,26 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1cm,bmargin=2cm,footskip=1cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsthm, amsfonts, amsmath}
+\usepackage{graphicx}
+
 \usepackage{xcolor}
 % Definindo novas cores
 \definecolor{verde}{rgb}{0,0.5,0}
+\definecolor{eminence}{RGB}{210,31,60}
+\definecolor{commentgreen}{RGB}{2,112,10}
+
 % Configurando layout para mostrar codigos C++
 \usepackage{listings}
 \lstset{
   language=C++,
   basicstyle=\ttfamily\small,
-  keywordstyle=\color{black},
   stringstyle=\color{black},
-  commentstyle=\color{black},
+  keywordstyle=\color{eminence},
+%   commentstyle=\color{black},
+  commentstyle=\color{commentgreen},
   extendedchars=true,
   showspaces=false,
   showstringspaces=false,
@@ -21,231 +32,301 @@
   captionpos=b,
   xleftmargin=0pt,
 }
-\pagestyle{empty}
+% \pagestyle{empty}
 \renewcommand{\contentsname}{Sumario}
-
+\pagenumbering{arabic}
 
 \begin{document}
-\tableofcontents
 
 
+% Olá
 
-\section{Template Longo}
-\begin{lstlisting}
-#include <bits/stdc++.h>
+% \tableofcontents
 
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/detail/standard_policies.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+\section{128_t.cpp}
+\lstinputlisting{../128_t.cpp}
 
-#define int long long
-#define all(x) x.begin(), x.end()
+\section{aho-corasick.cpp}
+\lstinputlisting{../aho-corasick.cpp}
 
-using namespace __gnu_pbds;
-using namespace std;
+\section{all_divisors.cpp}
+\lstinputlisting{../all_divisors.cpp}
 
-template <class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+\section{articbridges.cpp}
+\lstinputlisting{../articbridges.cpp}
 
-% template <class T> using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+\section{binomio.cpp}
+\lstinputlisting{../binomio.cpp}
 
-typedef long long ll;
-typedef pair<int, int> ii;
-typedef tuple<int, int, int> iii;
-typedef vector<int> vi;
-const ll oo = 1987654321987654321;
+\section{bipartido.cpp}
+\lstinputlisting{../bipartido.cpp}
 
-template <class It>
-void db(It b, It e) {
-  for (auto it = b; it != e; it++) cout << *it << ' ';
-  cout << endl;
-}
+\section{bit2d.cpp}
+\lstinputlisting{../bit2d.cpp}
 
-int32_t main() {
-  cin.tie(0);
-  ios_base::sync_with_stdio(0);
-}
+\section{bit2d-esparsa.cpp}
+\lstinputlisting{../bit2d-esparsa.cpp}
 
-\end{lstlisting}
+\section{bit.cpp}
+\lstinputlisting{../bit.cpp}
 
+\section{block-cut-tree.cpp}
+\lstinputlisting{../block-cut-tree.cpp}
 
+\section{centroid.cpp}
+\lstinputlisting{../centroid.cpp}
 
-\section{PBS}
-\begin{lstlisting}
-s.insert(1);
-s.insert(2);
-s.insert(4);
-s.insert(8);
-s.insert(16);
+\section{color-update.cpp}
+\lstinputlisting{../color-update.cpp}
 
-cout<<*s.find_by_order(1)<<endl; // 2
-cout<<*s.find_by_order(2)<<endl; // 4
-cout<<*s.find_by_order(4)<<endl; // 16
-cout<<(end(s)==s.find_by_order(6))<<endl; // true
+\section{combinatoria.cpp}
+\lstinputlisting{../combinatoria.cpp}
 
-cout<<s.order_of_key(-5)<<endl;  // 0
-cout<<s.order_of_key(1)<<endl;   // 0
-cout<<s.order_of_key(3)<<endl;   // 2
-cout<<s.order_of_key(4)<<endl;   // 2
-cout<<s.order_of_key(400)<<endl; // 5
-\end{lstlisting}
+\section{composicao.cpp}
+\lstinputlisting{../composicao.cpp}
 
+\section{compress.cpp}
+\lstinputlisting{../compress.cpp}
 
- 
-\section{SQRT Decomposition on Trees}
+\section{conectividade-dinamica.cpp}
+\lstinputlisting{../conectividade-dinamica.cpp}
 
-\begin{lstlisting}
+\section{convex-hull.cpp}
+\lstinputlisting{../convex-hull.cpp}
 
-int B = ceil(sqrt(h_mx)) + gen(1, 100);
-for (int i=0; i < h_mx; i+=B){
-    int mi = -1;
-    for (int j=0; j < B; j++){
-        int id = i + j;
-        if (!by_height[id].empty()){
-            if (mi == -1 || (by_height[mi].size() > by_height[id].size())){
-                mi = id;
-            }
-        }
-    }
-    if (mi != -1){
-        for (auto &u: by_height[mi]){
-            for (auto &v: by_height[mi]){
-                if (u <= v){
-                    tab[ii(u, v)] = solve(u, v);
-                }
-            }
-        }
-        for (auto &u: by_height[mi]){
-            special[u] = true;
-        }
-    }
-}
- \end{lstlisting}
+\section{convex-hull-trick.cpp}
+\lstinputlisting{../convex-hull-trick.cpp}
 
-\section{Digit DP - Generalizada}
-\begin{lstlisting}
-#include <bits/stdc++.h>
-#define BIT(x, i) ((x & (1ll << i)) ? 1 : 0)
-#define int long long
+\section{dijkstra.cpp}
+\lstinputlisting{../dijkstra.cpp}
 
-using namespace std;
+\section{disjoint-sparse-table.cpp}
+\lstinputlisting{../disjoint-sparse-table.cpp}
 
-typedef long long ll;
-const ll P = 1e9 + 7;
+\section{double-hash.cpp}
+\lstinputlisting{../double-hash.cpp}
 
-ll memo[50][2][2][2][2];
+\section{dp-digit.cpp}
+\lstinputlisting{../dp_digit.cpp}
 
-ll dp(int i, int upper0, bool e0, int upper1, bool e1, int upper2, bool e2,
-      int x = 0) {
-  if (i == -1) return x != 0;
-  ll &ans = memo[i][e0][e1][e2][x];
-  if (ans != -1) return ans;
-  ans = 0;
-  int r0 = e0 ? BIT(upper0, i) : 1;
-  int r1 = e1 ? BIT(upper1, i) : 1;
-  int r2 = e2 ? BIT(upper2, i) : 1;
-  for (int v0 = 0; v0 <= r0; v0++) {
-    bool new_e0 = e0 && v0 == r0;
-    for (int v1 = 0; v1 <= r1; v1++) {
-      bool new_e1 = e1 && v1 == r1;
-      for (int v2 = 0; v2 <= r2; v2++) {
-        bool new_e2 = e2 && v2 == r2;
-        ans += dp(i - 1, upper0, new_e0, upper1, new_e1, upper2, new_e2,
-                  ((x) || (v0 ^ v1 ^ v2)));
-        ans %= P;
-      }
-    }
-  }
-  return ans;
-}
+\section{dp-digit-single.cpp}
+\lstinputlisting{../dp_digit_single.cpp}
 
-ll solve(int x, int y, int z) {
-  memset(memo, -1, sizeof(memo));
-  return dp(40, x, true, y, true, z, true);
-}
+\section{dsu.cpp}
+\lstinputlisting{../dsu.cpp}
 
-ll expbin(ll a, ll b) {
-  if (b == 0LL) return 1LL;
-  if (b & (1LL)) return (a % P * expbin(a, b - 1)) % P;
-  ll tmp = expbin(a, b / 2);
-  return (tmp * tmp) % P;
-}
+\section{dsu-rollback.cpp}
+\lstinputlisting{../dsu-rollback.cpp}
 
-int32_t main() {
-  cin.tie(0);
-  ios_base::sync_with_stdio(0);
+\section{euclides-estendido.cpp}
+\lstinputlisting{../euclides-estendido.cpp}
 
-  int l[3], r[3];
-  ll q = 1;
-  for (int i = 0; i < 3; i++) {
-    cin >> l[i] >> r[i];
-    q *= (r[i] - l[i] + 1) % P;
-    q %= P;
-  }
-  cout << ((((((((((  solve(r[0], r[1], r[2])
-                    - solve(l[0] - 1, r[1], r[2])) %P
-                    - solve(r[0], l[1] - 1, r[2])) % P
-                    - solve(r[0], r[1], l[2] - 1)) % P
-                    + solve(l[0] - 1, l[1] - 1, r[2])) % P
-                    + solve(l[0] - 1, r[1], l[2] - 1)) % P
-                    + solve(r[0], l[1] - 1, l[2] - 1)) % P
-                    - solve(l[0] - 1, l[1] - 1, l[2] - 1)) % P + P) % P)  * expbin(q, P - 2)) % P << "\n";
-}
- \end{lstlisting}
+\section{expbin.cpp}
+\lstinputlisting{../expbin.cpp}
 
-\section{BIT 2D}
-\begin{lstlisting}
-ll bit[MAX][MAX];
+\section{expbin-fast.cpp}
+\lstinputlisting{../expbin-fast.cpp}
 
-void add(int i, int j, ll v) {
-  for (; i < MAX; i += i & (-i))
-    for (int jj = j; jj < MAX; jj += jj & (-jj)) bit[i][jj] += v;
-}
+\section{expmatrix.cpp}
+\lstinputlisting{../expmatrix.cpp}
 
-ll getbit(int i, int j) {
-  ll sum = 0;
-  for (; i; i -= i & (-i))
-    for (int jj = j; jj; jj -= jj & (-jj)) sum += bit[i][jj];
-  return sum;
-}
+\section{fact.cpp}
+\lstinputlisting{../fact.cpp}
 
-ll getbit(int lx, int ly, int rx, int ry) {  // getbit(1, 1, lin, col)
-  return getbit(rx, ry) - getbit(rx, ly - 1) - getbit(lx - 1, ry) +
-         getbit(lx - 1, ly - 1);
-}
+\section{ffek.cpp}
+\lstinputlisting{../ffek.cpp}
 
-void add(int lx, int ly, int rx, int ry, ll v) {  // canto superior esquerdo
-  rx++;                                           // canto inferior direito
-  ry++;
-  add(lx, ly, +v);
-  add(lx, ry, -v);
-  add(rx, ly, -v);
-  add(rx, ry, +v);
-}
-\end{lstlisting}
-\section{BIT 2D - Esparsa}
-\begin{lstlisting}
-ordered_set<ii> bit[MAX];
+\section{fft.cpp}
+\lstinputlisting{../fft.cpp}
 
-void insert(int x, int y) {
-  for (int i = x; i < MAX; i += i & -i)
-      bit[i].insert(ii(y, x));
-}
+\section{fft-fast.cpp}
+\lstinputlisting{../fft-fast.cpp}
 
-void remove(int x, int y) {
-  for (int i = x; i < MAX; i += i & -i)
-      bit[i].erase(ii(y, x));
-}
+\section{floyd-warshall.cpp}
+\lstinputlisting{../floyd_warshall.cpp}
 
-int get(int x, int y) {
-  int ans = 0;
-  for (int i = x; i > 0; i -= i & -i)
-      ans += bit[i].order_of_key(ii(y + 1, 0));
-  return ans;
-}
+\section{geometria.cpp}
+\lstinputlisting{../geometria.cpp}
 
-int get(int lx, int ly, int rx, int ry) {
-  return get(rx, ry) - get(rx, ly - 1) - get(lx - 1, ry) + get(lx - 1, ly - 1);
-}
- \end{lstlisting}
+\section{gosper-hack.cpp}
+\lstinputlisting{../gosper-hack.cpp}
+
+\section{hadamard.cpp}
+\lstinputlisting{../hadamard.cpp}
+
+\section{hash2d.cpp}
+\lstinputlisting{../hash2d.cpp}
+
+\section{hash.cpp}
+\lstinputlisting{../hash.cpp}
+
+\section{hash-generalizado.cpp}
+\lstinputlisting{../hash-generalizado.cpp}
+
+\section{hld.cpp}
+\lstinputlisting{../hld.cpp}
+
+\section{hungarian.cpp}
+\lstinputlisting{../hungarian.cpp}
+
+\section{interpolacao.cpp}
+\lstinputlisting{../interpolacao.cpp}
+
+\section{kmp-automata.cpp}
+\lstinputlisting{../kmp-automata.cpp}
+
+\section{kmp.cpp}
+\lstinputlisting{../kmp.cpp}
+
+\section{knapsack.cpp}
+\lstinputlisting{../knapsack.cpp}
+
+\section{kosaraju.cpp}
+\lstinputlisting{../kosaraju.cpp}
+
+\section{kruskal.cpp}
+\lstinputlisting{../kruskal.cpp}
+
+\section{kuhn.cpp}
+\lstinputlisting{../kuhn.cpp}
+
+\section{lca.cpp}
+\lstinputlisting{../lca.cpp}
+
+\section{lcs.cpp}
+\lstinputlisting{../lcs.cpp}
+
+\section{line.cpp}
+\lstinputlisting{../line.cpp}
+
+\section{lis.cpp}
+\lstinputlisting{../lis.cpp}
+
+\section{manacher.cpp}
+\lstinputlisting{../manacher.cpp}
+
+\section{mergesort_tree.cpp}
+\lstinputlisting{../mergesort_tree.cpp}
+
+\section{minqueue.cpp}
+\lstinputlisting{../minqueue.cpp}
+
+\section{mint.cpp}
+\lstinputlisting{../mint.cpp}
+
+\section{mo.cpp}
+\lstinputlisting{../mo.cpp}
+
+\section{ntt.cpp}
+\lstinputlisting{../ntt.cpp}
+
+\section{on_suffix_array.cpp}
+\lstinputlisting{../on_suffix_array.cpp}
+
+\section{palindromic_tree.cpp}
+\lstinputlisting{../palindromic_tree.cpp}
+
+\section{pbs.cpp}
+\lstinputlisting{../pbs.cpp}
+
+\section{pollard-rho.cpp}
+\lstinputlisting{../pollard-rho.cpp}
+
+\section{prefix_sum2d.cpp}
+\lstinputlisting{../prefix_sum2d.cpp}
+
+\section{prim.cpp}
+\lstinputlisting{../prim.cpp}
+
+\section{reroot.cpp}
+\lstinputlisting{../reroot.cpp}
+
+\section{rotate90.cpp}
+\lstinputlisting{../rotate90.cpp}
+
+\section{rotate.cpp}
+\lstinputlisting{../rotate.cpp}
+
+\section{scc.cpp}
+\lstinputlisting{../scc.cpp}
+
+\section{segbeats.cpp}
+\lstinputlisting{../segbeats.cpp}
+
+\section{segment_tree_2d.cpp}
+\lstinputlisting{../segment_tree_2d.cpp}
+
+\section{segment_tree_din.cpp}
+\lstinputlisting{../segment_tree_din.cpp}
+
+\section{segment_tree_din_lazy.cpp}
+\lstinputlisting{../segment_tree_din_lazy.cpp}
+
+\section{segment_tree_lazy.cpp}
+\lstinputlisting{../segment_tree_lazy.cpp}
+
+\section{segment_tree_persistente.cpp}
+\lstinputlisting{../segment_tree_persistente.cpp}
+
+\section{segment_tree_sum.cpp}
+\lstinputlisting{../segment_tree_sum.cpp}
+
+\section{segment_tree_sum_it.cpp}
+\lstinputlisting{../segment_tree_sum_it.cpp}
+
+\section{sieve.cpp}
+\lstinputlisting{../sieve.cpp}
+
+\section{small_to_large2.cpp}
+\lstinputlisting{../small_to_large2.cpp}
+
+\section{small_to_large.cpp}
+\lstinputlisting{../small_to_large.cpp}
+
+\section{spfa_ffek.cpp}
+\lstinputlisting{../spfa_ffek.cpp}
+
+\section{sqrt-blocks.cpp}
+\lstinputlisting{../sqrt-blocks.cpp}
+
+\section{sqrt-decomposition-on-trees.cpp}
+\lstinputlisting{../sqrt-decomposition-on-trees.cpp}
+
+\section{suffix_array.cpp}
+\lstinputlisting{../suffix_array.cpp}
+
+\section{suffix_automaton.cpp}
+\lstinputlisting{../suffix_automaton.cpp}
+
+\section{tarjan.cpp}
+\lstinputlisting{../tarjan.cpp}
+
+\section{ternaria.cpp}
+\lstinputlisting{../ternaria.cpp}
+
+\section{ternaria-int.cpp}
+\lstinputlisting{../ternaria-int.cpp}
+
+\section{toposort.cpp}
+\lstinputlisting{../toposort.cpp}
+
+\section{trie-bits.cpp}
+\lstinputlisting{../trie-bits.cpp}
+
+\section{trie.cpp}
+\lstinputlisting{../trie.cpp}
+
+\section{virtual-tree.cpp}
+\lstinputlisting{../virtual_tree.cpp}
+
+\section{welzl.cpp}
+\lstinputlisting{../welzl.cpp}
+
+\section{xor-dimension.cpp}
+\lstinputlisting{../xor-dimension.cpp}
+
+\section{zfunction.cpp}
+\lstinputlisting{../zfunction.cpp}
+
 
 \end{document}

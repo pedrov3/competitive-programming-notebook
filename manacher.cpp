@@ -1,4 +1,5 @@
-// from: https://github.com/brunomaletta/Biblioteca/blob/dbcc61b3cb386ad00c9036a5b107a81b1817920f/Codigo/Strings/manacher.cpp
+// from:
+// https://github.com/brunomaletta/Biblioteca/blob/dbcc61b3cb386ad00c9036a5b107a81b1817920f/Codigo/Strings/manacher.cpp
 // Manacher
 //
 // manacher recebe um vetor de T e retorna o vetor com tamanho dos palindromos
@@ -11,9 +12,9 @@
 // pal_end - O(n)
 
 template <typename T>
-vector<int> manacher(const T& s) {
+vi manacher(const T& s) {
   int l = 0, r = -1, n = s.size();
-  vector<int> d1(n), d2(n);
+  vi d1(n), d2(n);
   for (int i = 0; i < n; i++) {
     int k = i > r ? 1 : min(d1[l + r - i], r - i);
     while (i + k < n && i - k >= 0 && s[i + k] == s[i - k]) k++;
@@ -28,7 +29,7 @@ vector<int> manacher(const T& s) {
     d2[i] = --k;
     if (i + k - 1 > r) l = i - k, r = i + k - 1;
   }
-  vector<int> ret(2 * n - 1);
+  vi ret(2 * n - 1);
   for (int i = 0; i < n; i++) ret[2 * i] = 2 * d1[i] - 1;
   for (int i = 0; i < n - 1; i++) ret[2 * i + 1] = 2 * d2[i + 1];
   return ret;
@@ -37,7 +38,7 @@ vector<int> manacher(const T& s) {
 // verifica se a string s[i..j] eh palindromo
 template <typename T>
 struct palindrome {
-  vector<int> man;
+  vi man;
 
   palindrome(const T& s) : man(manacher(s)) {}
   bool query(int i, int j) { return man[i + j] >= j - i + 1; }
@@ -45,8 +46,8 @@ struct palindrome {
 
 // tamanho do maior palindromo que termina em cada posicao
 template <typename T>
-vector<int> pal_end(const T& s) {
-  vector<int> ret(s.size());
+vi pal_end(const T& s) {
+  vi ret(s.size());
   palindrome<T> p(s);
   ret[0] = 1;
   for (int i = 1; i < s.size(); i++) {

@@ -42,8 +42,10 @@ struct merge_sort_tree {
       int b = seg[pos].vet.size();  // bad
       while (a + 1 < b) {
         int mid = a + (b - a) / 2;
-        if (seg[pos].vet[mid] <= x) a = mid;
-        else b = mid;
+        if (seg[pos].vet[mid] <= x)
+          a = mid;
+        else
+          b = mid;
       }
       return a + 1;
     }
@@ -51,7 +53,7 @@ struct merge_sort_tree {
     return get(l, r, x, 2 * pos + 1, lx, mid) +
            get(l, r, x, 2 * pos + 2, mid, rx);
   }
-  
+
   // qtde <= x no intervalo [l, r)?
   int get(int l, int r, int x) { return get(l, r, x, 0, 0, n); }
 };

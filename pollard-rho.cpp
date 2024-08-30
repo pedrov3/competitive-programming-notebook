@@ -1,4 +1,5 @@
-// from: https://github.com/brunomaletta/Biblioteca/blob/f59fbb7026cabcd3d9556bb2b499a0e07bc75abc/Codigo/Matematica/pollardrho.cpp
+// from:
+// https://github.com/brunomaletta/Biblioteca/blob/f59fbb7026cabcd3d9556bb2b499a0e07bc75abc/Codigo/Matematica/pollardrho.cpp
 // Pollard's Rho Alg
 //
 // Usa o algoritmo de deteccao de ciclo de Floyd
@@ -10,7 +11,6 @@
 // Complexidades (considerando mul constante):
 // rho - esperado O(n^(1/4)) no pior caso
 // fact - esperado menos que O(n^(1/4) log(n)) no pior caso
-
 
 ll mul(ll a, ll b, ll m) {
   ll ret = a * b - ll((long double)1 / m * a * b + 0.5) * m;
@@ -61,6 +61,6 @@ vector<ll> fact(ll n) {
   if (prime(n)) return {n};
   ll d = rho(n);
   vector<ll> l = fact(d), r = fact(n / d);
-  l.insert(l.end(), r.begin(), r.end());
+  l.insert(l.end(), all(r));
   return l;
 }

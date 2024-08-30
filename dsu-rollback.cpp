@@ -13,9 +13,9 @@ struct dsu_rollback {
   void join(int u, int v) {
     u = find(u);
     v = find(v);
-    if (u == v){
-        qt.emplace(0);
-        return;
+    if (u == v) {
+      qt.emplace(0);
+      return;
     }
     if (rnk[u] > rnk[v]) {
       qt.emplace(2);
@@ -43,7 +43,7 @@ struct dsu_rollback {
       stk.pop();
     }
   }
-  void undo(){ // TODO: 
+  void undo() {  // TODO:
     int q = qt.top();
     qt.pop();
     undo(stk.size() - q);

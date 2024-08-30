@@ -29,12 +29,12 @@ void build_suf(string &str) {
       tmp[i].second = i;
     }
 
-    sort(tmp.begin(), tmp.end());
+    sort(all(tmp));
     for (int i = 0; i < n; i++) s[i] = tmp[i].second;
 
     c[s[0]] = 0;
     for (int i = 1; i < n; i++)
-      c[s[i]] = c[s[i - 1]] + int(tmp[i].first != tmp[i - 1].first);
+      c[s[i]] = c[s[i - 1]] + (int)(tmp[i].first != tmp[i - 1].first);
   }
 
   int k = 0;

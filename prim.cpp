@@ -1,5 +1,4 @@
 // TODO
-
 ll dist[MAX];
 bool vis[MAX];
 
