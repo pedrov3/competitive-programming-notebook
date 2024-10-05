@@ -1,10 +1,8 @@
 const int MAX = 1000006;
-const int K = 26;
 
 struct node {
   int len, link;
-  int nxt[K];
-  node() { memset(nxt, -1, sizeof(nxt)); }
+  map<int, int> nxt;
 };
 
 node st[MAX * 2];
@@ -17,11 +15,10 @@ void sa_init() { // TODO: chamar antes de usar
 }
 
 void sa_extend(int c) {
-  c -= 'a'; // TODO
   int cur = sz++;
   st[cur].len = st[last].len + 1;
   int p = last;
-  while (p != -1 && st[p].nxt[c] == -1) {
+  while (p != -1 && !st[p].nxt.count(c)) {
     st[p].nxt[c] = cur;
     p = st[p].link;
   }
@@ -34,7 +31,7 @@ void sa_extend(int c) {
     } else {
       int clone = sz++;
       st[clone].len = st[p].len + 1;
-      copy(st[q].nxt, st[q].nxt + K, st[clone].nxt);
+      st[clone] = st[q].nxt;
       st[clone].link = st[q].link;
       while (p != -1 && st[p].nxt[c] == q) {
         st[p].nxt[c] = clone;

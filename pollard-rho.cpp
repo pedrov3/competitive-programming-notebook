@@ -1,13 +1,3 @@
-// from:
-// https://github.com/brunomaletta/Biblioteca/blob/f59fbb7026cabcd3d9556bb2b499a0e07bc75abc/Codigo/Matematica/pollardrho.cpp
-// Pollard's Rho Alg
-//
-// Usa o algoritmo de deteccao de ciclo de Floyd
-// com uma otimizacao na qual o gcd eh acumulado
-// A fatoracao nao sai necessariamente ordenada
-// O algoritmo rho encontra um fator de n,
-// e funciona muito bem quando n possui um fator pequeno
-//
 // Complexidades (considerando mul constante):
 // rho - esperado O(n^(1/4)) no pior caso
 // fact - esperado menos que O(n^(1/4) log(n)) no pior caso

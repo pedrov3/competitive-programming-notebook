@@ -2,6 +2,7 @@
 \usepackage[margin=1cm,bmargin=2cm,footskip=1cm]{geometry}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{multicol}
 
 \usepackage{amsthm, amsfonts, amsmath}
 \usepackage{graphicx}
@@ -32,6 +33,52 @@
   captionpos=b,
   xleftmargin=0pt,
 }
+\lstset{literate=
+  {á}{{\'a\lst@whitespacefalse}}1 {é}{{\'e\lst@whitespacefalse}}1
+  {í}{{\'i\lst@whitespacefalse}}1 {ó}{{\'o\lst@whitespacefalse}}1
+  {ú}{{\'u\lst@whitespacefalse}}1
+  {Á}{{\'A\lst@whitespacefalse}}1 {É}{{\'E\lst@whitespacefalse}}1
+  {Í}{{\'I\lst@whitespacefalse}}1 {Ó}{{\'O\lst@whitespacefalse}}1
+  {Ú}{{\'U\lst@whitespacefalse}}1
+  {à}{{\`a\lst@whitespacefalse}}1 {è}{{\`e\lst@whitespacefalse}}1
+  {ì}{{\`i\lst@whitespacefalse}}1 {ò}{{\`o\lst@whitespacefalse}}1
+  {ù}{{\`u\lst@whitespacefalse}}1
+  {À}{{\`A\lst@whitespacefalse}}1
+  {È}{{\'E\lst@whitespacefalse}}1 {Ì}{{\`I\lst@whitespacefalse}}1
+  {Ò}{{\`O\lst@whitespacefalse}}1 {Ù}{{\`U\lst@whitespacefalse}}1
+  {ä}{{\"a\lst@whitespacefalse}}1 {ë}{{\"e\lst@whitespacefalse}}1
+  {ï}{{\"i\lst@whitespacefalse}}1 {ö}{{\"o\lst@whitespacefalse}}1
+  {ü}{{\"u\lst@whitespacefalse}}1
+  {Ä}{{\"A\lst@whitespacefalse}}1 {Ë}{{\"E\lst@whitespacefalse}}1
+  {Ï}{{\"I\lst@whitespacefalse}}1 {Ö}{{\"O\lst@whitespacefalse}}1
+  {Ü}{{\"U\lst@whitespacefalse}}1
+  {â}{{\^a\lst@whitespacefalse}}1 {ê}{{\^e\lst@whitespacefalse}}1
+  {î}{{\^i\lst@whitespacefalse}}1 {ô}{{\^o\lst@whitespacefalse}}1
+  {û}{{\^u\lst@whitespacefalse}}1
+  {Â}{{\^A\lst@whitespacefalse}}1 {Ê}{{\^E\lst@whitespacefalse}}1
+  {Î}{{\^I\lst@whitespacefalse}}1 {Ô}{{\^O\lst@whitespacefalse}}1
+  {Û}{{\^U\lst@whitespacefalse}}1
+  {Ã}{{\~A\lst@whitespacefalse}}1 {ã}{{\~a\lst@whitespacefalse}}1
+  {Õ}{{\~O\lst@whitespacefalse}}1 {õ}{{\~o\lst@whitespacefalse}}1
+  {œ}{{\oe\lst@whitespacefalse}}1 {Œ}{{\OE\lst@whitespacefalse}}1
+  {æ}{{\ae\lst@whitespacefalse}}1 {Æ}{{\AE\lst@whitespacefalse}}1
+  {ß}{{\ss\lst@whitespacefalse}}1
+  {ű}{{\H{u}\lst@whitespacefalse}}1 {Ű}{{\H{U}\lst@whitespacefalse}}1
+  {ő}{{\H{o}\lst@whitespacefalse}}1 {Ő}{{\H{O}\lst@whitespacefalse}}1
+  {ç}{{\c c\lst@whitespacefalse}}1 {Ç}{{\c C\lst@whitespacefalse}}1
+  {ø}{{\o\lst@whitespacefalse}}1
+  {å}{{\r a\lst@whitespacefalse}}1 {Å}{{\r A\lst@whitespacefalse}}1
+  {€}{{\euro\lst@whitespacefalse}}1 {£}{{\pounds\lst@whitespacefalse}}1
+  {«}{{\guillemotleft\lst@whitespacefalse}}1
+  {»}{{\guillemotright\lst@whitespacefalse}}1
+  {ñ}{{\~n\lst@whitespacefalse}}1 {Ñ}{{\~N\lst@whitespacefalse}}1
+  {¿}{{?`\lst@whitespacefalse}}1
+  {º}{{\textordmasculine\lst@whitespacefalse}}1
+  %{~}{{\raisebox{0.5ex}{\texttildelow}\lst@whitespacefalse}}1
+  %{^}{{\raisebox{-0.75ex}{\^{}}\lst@whitespacefalse}}1
+}
+
+
 % \pagestyle{empty}
 \renewcommand{\contentsname}{Sumario}
 \pagenumbering{arabic}
@@ -39,294 +86,353 @@
 \begin{document}
 
 
-% Olá
+\title{Caderninho}
+\date{Universidade Federal do Paraná\\[2ex]\today}
 
-% \tableofcontents
+% \maketitle
 
-\section{128_t.cpp}
-\lstinputlisting{../128_t.cpp}
+\twocolumn
+\tableofcontents
 
-\section{aho-corasick.cpp}
+\onecolumn
+\pagebreak
+\section{Geral}
+\subsection{128.cpp}
+\lstinputlisting{../128.cpp}
+
+\subsection{aho-corasick.cpp}
 \lstinputlisting{../aho-corasick.cpp}
 
-\section{all_divisors.cpp}
-\lstinputlisting{../all_divisors.cpp}
+\subsection{all-divisors.cpp}
+\lstinputlisting{../all-divisors.cpp}
 
-\section{articbridges.cpp}
+\subsection{articbridges.cpp}
 \lstinputlisting{../articbridges.cpp}
 
-\section{binomio.cpp}
+\subsection{binomio.cpp}
 \lstinputlisting{../binomio.cpp}
 
-\section{bipartido.cpp}
+\subsection{bipartido.cpp}
 \lstinputlisting{../bipartido.cpp}
 
-\section{bit2d.cpp}
+\subsection{bit2d.cpp}
 \lstinputlisting{../bit2d.cpp}
 
-\section{bit2d-esparsa.cpp}
+\subsection{bit2d-esparsa.cpp}
 \lstinputlisting{../bit2d-esparsa.cpp}
 
-\section{bit.cpp}
+\subsection{bit.cpp}
 \lstinputlisting{../bit.cpp}
 
-\section{block-cut-tree.cpp}
+\subsection{block-cut-tree.cpp}
 \lstinputlisting{../block-cut-tree.cpp}
 
-\section{centroid.cpp}
+\subsection{centroid.cpp}
 \lstinputlisting{../centroid.cpp}
 
-\section{color-update.cpp}
+\subsection{color-update.cpp}
 \lstinputlisting{../color-update.cpp}
 
-\section{combinatoria.cpp}
+\subsection{combinatoria.cpp}
 \lstinputlisting{../combinatoria.cpp}
 
-\section{composicao.cpp}
+\subsection{composicao.cpp}
 \lstinputlisting{../composicao.cpp}
 
-\section{compress.cpp}
+\subsection{compress.cpp}
 \lstinputlisting{../compress.cpp}
 
-\section{conectividade-dinamica.cpp}
+\subsection{conectividade-dinamica.cpp}
 \lstinputlisting{../conectividade-dinamica.cpp}
 
-\section{convex-hull.cpp}
+\subsection{convex-hull.cpp}
 \lstinputlisting{../convex-hull.cpp}
 
-\section{convex-hull-trick.cpp}
+\subsection{convex-hull-trick.cpp}
 \lstinputlisting{../convex-hull-trick.cpp}
 
-\section{dijkstra.cpp}
+\subsection{dijkstra.cpp}
 \lstinputlisting{../dijkstra.cpp}
 
-\section{disjoint-sparse-table.cpp}
+\subsection{dinic.cpp}
+\lstinputlisting{../dinic.cpp}
+
+\subsection{disjoint-sparse-table.cpp}
 \lstinputlisting{../disjoint-sparse-table.cpp}
 
-\section{double-hash.cpp}
+\subsection{double-hash.cpp}
 \lstinputlisting{../double-hash.cpp}
 
-\section{dp-digit.cpp}
-\lstinputlisting{../dp_digit.cpp}
+\subsection{dp-digit.cpp}
+\lstinputlisting{../dp-digit.cpp}
 
-\section{dp-digit-single.cpp}
-\lstinputlisting{../dp_digit_single.cpp}
+\subsection{dp-digit-single.cpp}
+\lstinputlisting{../dp-digit-single.cpp}
 
-\section{dsu.cpp}
+\subsection{dsu.cpp}
 \lstinputlisting{../dsu.cpp}
 
-\section{dsu-rollback.cpp}
+\subsection{dsu-rollback.cpp}
 \lstinputlisting{../dsu-rollback.cpp}
 
-\section{euclides-estendido.cpp}
+\subsection{euclides-estendido.cpp}
 \lstinputlisting{../euclides-estendido.cpp}
 
-\section{expbin.cpp}
+\subsection{expbin.cpp}
 \lstinputlisting{../expbin.cpp}
 
-\section{expbin-fast.cpp}
+\subsection{expbin-fast.cpp}
 \lstinputlisting{../expbin-fast.cpp}
 
-\section{expmatrix.cpp}
+\subsection{expmatrix.cpp}
 \lstinputlisting{../expmatrix.cpp}
 
-\section{fact.cpp}
-\lstinputlisting{../fact.cpp}
-
-\section{ffek.cpp}
-\lstinputlisting{../ffek.cpp}
-
-\section{fft.cpp}
-\lstinputlisting{../fft.cpp}
-
-\section{fft-fast.cpp}
+\subsection{fft-fast.cpp}
 \lstinputlisting{../fft-fast.cpp}
 
-\section{floyd-warshall.cpp}
-\lstinputlisting{../floyd_warshall.cpp}
+\subsection{floyd-warshall.cpp}
+\lstinputlisting{../floyd-warshall.cpp}
 
-\section{geometria.cpp}
+\subsection{geometria.cpp}
 \lstinputlisting{../geometria.cpp}
 
-\section{gosper-hack.cpp}
+\subsection{gosper-hack.cpp}
 \lstinputlisting{../gosper-hack.cpp}
 
-\section{hadamard.cpp}
+\subsection{hadamard.cpp}
 \lstinputlisting{../hadamard.cpp}
 
-\section{hash2d.cpp}
+\subsection{hash2d.cpp}
 \lstinputlisting{../hash2d.cpp}
 
-\section{hash.cpp}
+\subsection{hash.cpp}
 \lstinputlisting{../hash.cpp}
 
-\section{hash-generalizado.cpp}
+\subsection{hash-generalizado.cpp}
 \lstinputlisting{../hash-generalizado.cpp}
 
-\section{hld.cpp}
+\subsection{hld.cpp}
 \lstinputlisting{../hld.cpp}
 
-\section{hungarian.cpp}
+\subsection{hungarian.cpp}
 \lstinputlisting{../hungarian.cpp}
 
-\section{interpolacao.cpp}
+\subsection{interpolacao.cpp}
 \lstinputlisting{../interpolacao.cpp}
 
-\section{kmp-automata.cpp}
+\subsection{kmp-automata.cpp}
 \lstinputlisting{../kmp-automata.cpp}
 
-\section{kmp.cpp}
+\subsection{kmp.cpp}
 \lstinputlisting{../kmp.cpp}
 
-\section{knapsack.cpp}
+\subsection{knapsack.cpp}
 \lstinputlisting{../knapsack.cpp}
 
-\section{kosaraju.cpp}
-\lstinputlisting{../kosaraju.cpp}
-
-\section{kruskal.cpp}
+\subsection{kruskal.cpp}
 \lstinputlisting{../kruskal.cpp}
 
-\section{kuhn.cpp}
+\subsection{kuhn.cpp}
 \lstinputlisting{../kuhn.cpp}
 
-\section{lca.cpp}
+\subsection{lca.cpp}
 \lstinputlisting{../lca.cpp}
 
-\section{lcs.cpp}
+\subsection{lcs.cpp}
 \lstinputlisting{../lcs.cpp}
 
-\section{line.cpp}
+\subsection{line.cpp}
 \lstinputlisting{../line.cpp}
 
-\section{lis.cpp}
+\subsection{lis.cpp}
 \lstinputlisting{../lis.cpp}
 
-\section{manacher.cpp}
+\subsection{manacher.cpp}
 \lstinputlisting{../manacher.cpp}
 
-\section{mergesort_tree.cpp}
-\lstinputlisting{../mergesort_tree.cpp}
+\subsection{mergesort-tree.cpp}
+\lstinputlisting{../mergesort-tree.cpp}
 
-\section{minqueue.cpp}
+\subsection{min-cost-max-flow.cpp}
+\lstinputlisting{../min-cost-max-flow.cpp}
+
+\subsection{minqueue.cpp}
 \lstinputlisting{../minqueue.cpp}
 
-\section{mint.cpp}
+\subsection{mint.cpp}
 \lstinputlisting{../mint.cpp}
 
-\section{mo.cpp}
+\subsection{mo.cpp}
 \lstinputlisting{../mo.cpp}
 
-\section{ntt.cpp}
+\subsection{ntt.cpp}
 \lstinputlisting{../ntt.cpp}
 
-\section{on_suffix_array.cpp}
-\lstinputlisting{../on_suffix_array.cpp}
+\subsection{on-suffix-array.cpp}
+\lstinputlisting{../on-suffix-array.cpp}
 
-\section{palindromic_tree.cpp}
-\lstinputlisting{../palindromic_tree.cpp}
+\subsection{palindromic-tree.cpp}
+\lstinputlisting{../palindromic-tree.cpp}
 
-\section{pbs.cpp}
+\subsection{pbs.cpp}
 \lstinputlisting{../pbs.cpp}
 
-\section{pollard-rho.cpp}
+\subsection{pollard-rho.cpp}
 \lstinputlisting{../pollard-rho.cpp}
 
-\section{prefix_sum2d.cpp}
-\lstinputlisting{../prefix_sum2d.cpp}
+\subsection{prefix-sum2d.cpp}
+\lstinputlisting{../prefix-sum2d.cpp}
 
-\section{prim.cpp}
+\subsection{prim.cpp}
 \lstinputlisting{../prim.cpp}
 
-\section{reroot.cpp}
+\subsection{reroot.cpp}
 \lstinputlisting{../reroot.cpp}
 
-\section{rotate90.cpp}
+\subsection{rotate90.cpp}
 \lstinputlisting{../rotate90.cpp}
 
-\section{rotate.cpp}
+\subsection{rotate.cpp}
 \lstinputlisting{../rotate.cpp}
 
-\section{scc.cpp}
+\subsection{scc.cpp}
 \lstinputlisting{../scc.cpp}
 
-\section{segbeats.cpp}
+\subsection{segbeats.cpp}
 \lstinputlisting{../segbeats.cpp}
 
-\section{segment_tree_2d.cpp}
-\lstinputlisting{../segment_tree_2d.cpp}
+\subsection{segment-tree-2d.cpp}
+\lstinputlisting{../segment-tree-2d.cpp}
 
-\section{segment_tree_din.cpp}
-\lstinputlisting{../segment_tree_din.cpp}
+\subsection{segment-tree-din.cpp}
+\lstinputlisting{../segment-tree-din.cpp}
 
-\section{segment_tree_din_lazy.cpp}
-\lstinputlisting{../segment_tree_din_lazy.cpp}
+\subsection{segment-tree-din-lazy.cpp}
+\lstinputlisting{../segment-tree-din-lazy.cpp}
 
-\section{segment_tree_lazy.cpp}
-\lstinputlisting{../segment_tree_lazy.cpp}
+\subsection{segment-tree-lazy.cpp}
+\lstinputlisting{../segment-tree-lazy.cpp}
 
-\section{segment_tree_persistente.cpp}
-\lstinputlisting{../segment_tree_persistente.cpp}
+\subsection{segment-tree-persistente.cpp}
+\lstinputlisting{../segment-tree-persistente.cpp}
 
-\section{segment_tree_sum.cpp}
-\lstinputlisting{../segment_tree_sum.cpp}
+\subsection{segment-tree-sum.cpp}
+\lstinputlisting{../segment-tree-sum.cpp}
 
-\section{segment_tree_sum_it.cpp}
-\lstinputlisting{../segment_tree_sum_it.cpp}
+\subsection{segment-tree-sum-it.cpp}
+\lstinputlisting{../segment-tree-sum-it.cpp}
 
-\section{sieve.cpp}
+\subsection{sieve.cpp}
 \lstinputlisting{../sieve.cpp}
 
-\section{small_to_large2.cpp}
-\lstinputlisting{../small_to_large2.cpp}
+\subsection{small-to-large2.cpp}
+\lstinputlisting{../small-to-large2.cpp}
 
-\section{small_to_large.cpp}
-\lstinputlisting{../small_to_large.cpp}
+\subsection{small-to-large.cpp}
+\lstinputlisting{../small-to-large.cpp}
 
-\section{spfa_ffek.cpp}
-\lstinputlisting{../spfa_ffek.cpp}
-
-\section{sqrt-blocks.cpp}
+\subsection{sqrt-blocks.cpp}
 \lstinputlisting{../sqrt-blocks.cpp}
 
-\section{sqrt-decomposition-on-trees.cpp}
+\subsection{sqrt-decomposition-on-trees.cpp}
 \lstinputlisting{../sqrt-decomposition-on-trees.cpp}
 
-\section{suffix_array.cpp}
-\lstinputlisting{../suffix_array.cpp}
+\subsection{suffix-array.cpp}
+\lstinputlisting{../suffix-array.cpp}
 
-\section{suffix_automaton.cpp}
-\lstinputlisting{../suffix_automaton.cpp}
+\subsection{suffix-automaton.cpp}
+\lstinputlisting{../suffix-automaton.cpp}
 
-\section{tarjan.cpp}
-\lstinputlisting{../tarjan.cpp}
-
-\section{ternaria.cpp}
+\subsection{ternaria.cpp}
 \lstinputlisting{../ternaria.cpp}
 
-\section{ternaria-int.cpp}
+\subsection{ternaria-int.cpp}
 \lstinputlisting{../ternaria-int.cpp}
 
-\section{toposort.cpp}
+\subsection{toposort.cpp}
 \lstinputlisting{../toposort.cpp}
 
-\section{trie-bits.cpp}
+\subsection{trie-bits.cpp}
 \lstinputlisting{../trie-bits.cpp}
 
-\section{trie.cpp}
+\subsection{trie.cpp}
 \lstinputlisting{../trie.cpp}
 
-\section{virtual-tree.cpp}
-\lstinputlisting{../virtual_tree.cpp}
+\subsection{vertex-cover.cpp}
+\lstinputlisting{../vertex-cover.cpp}
 
-\section{welzl.cpp}
+\subsection{virtual-tree.cpp}
+\lstinputlisting{../virtual-tree.cpp}
+
+\subsection{welzl.cpp}
 \lstinputlisting{../welzl.cpp}
 
-\section{xor-dimension.cpp}
-\lstinputlisting{../xor-dimension.cpp}
-
-\section{zfunction.cpp}
+\subsection{zfunction.cpp}
 \lstinputlisting{../zfunction.cpp}
+
+
+
+
+
+\section{Problemas}
+\subsection{area-union-rec.cpp}
+\lstinputlisting{../problemas/area-union-rec.cpp}
+
+\subsection{dynamic-tree-dp.cpp}
+\lstinputlisting{../problemas/dynamic-tree-dp.cpp}
+
+\subsection{extremos-inteiros.cpp}
+\lstinputlisting{../problemas/extremos-inteiros.cpp}
+
+\subsection{igual-alternado.cpp}
+\lstinputlisting{../problemas/igual-alternado.cpp}
+
+\subsection{knapsack-plus-independent-set-in-tree.cpp}
+\lstinputlisting{../problemas/knapsack-plus-independent-set-in-tree.cpp}
+
+\subsection{kobus.cpp}
+\lstinputlisting{../problemas/kobus.cpp}
+
+\subsection{kth-node-path.cpp}
+\lstinputlisting{../problemas/kth-node-path.cpp}
+
+\subsection{max-distance-node-tree.cpp}
+\lstinputlisting{../problemas/max-distance-node-tree.cpp}
+
+\subsection{max-xor-over-all-subsets.cpp}
+\lstinputlisting{../problemas/max-xor-over-all-subsets.cpp}
+
+\subsection{mediana-dinamica.cpp}
+\lstinputlisting{../problemas/mediana-dinamica.cpp}
+
+\subsection{next-greater-element.cpp}
+\lstinputlisting{../problemas/next-greater-element.cpp}
+
+\subsection{sampling-points-shift.cpp}
+\lstinputlisting{../problemas/sampling-points-shift.cpp}
+
+\subsection{taylor-shift.cpp}
+\lstinputlisting{../problemas/taylor-shift.cpp}
+
+\pagebreak
+
+\section{Essencial}
+
+\subsection{Template}
+\lstinputlisting{../templates/template-competicao.cpp}
+
+
+\subsection{Makefile}
+\lstinputlisting{../templates/makefile}
+
+\pagebreak
+\subsection{stress.sh}
+\lstinputlisting{../templates/stress.sh}
+
+\subsection{gen.cpp}
+\lstinputlisting{../templates/gen.cpp}
+
+
 
 
 \end{document}
